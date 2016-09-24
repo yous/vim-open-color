@@ -264,8 +264,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
   call s:Hi('Identifier', s:oc['yellow'][2], '')
 
   call s:Hi('Statement', s:oc['violet'][2], '')
-  call s:Hi('Conditional', s:oc['indigo'][5], '')
-  call s:Hi('Repeat', s:oc['indigo'][5], '')
+  call s:Hi('Conditional', s:oc['indigo'][3], '')
+  call s:Hi('Repeat', s:oc['indigo'][3], '')
   call s:Hi('Operator', s:oc['cyan'][2], '')
 
   call s:Hi('PreProc', s:oc['violet'][2], '')
@@ -293,11 +293,11 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
   highlight CursorLine cterm=NONE
   highlight CursorLineNr cterm=NONE
 
-  call s:Hi('Directory', s:oc['indigo'][5], '')
+  call s:Hi('Directory', s:oc['indigo'][3], '')
 
-  call s:Hi('DiffAdd', 'NONE', s:oc['lime'][4])
+  call s:Hi('DiffAdd', 'NONE', s:oc['lime'][9])
   call s:Hi('DiffDelete', 'NONE', s:oc['red'][5])
-  call s:Hi('DiffChange', 'NONE', s:oc['indigo'][5])
+  call s:Hi('DiffChange', 'NONE', s:oc['indigo'][9])
   call s:Hi('DiffText', 'NONE', s:oc['cyan'][2])
   call s:Hi('diffAdded', s:oc['lime'][4], '')
   call s:Hi('diffRemoved', s:oc['red'][5], '')
@@ -342,9 +342,9 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
   " vim-gitgutter
   call s:Hi('GitGutterAdd', s:oc['lime'][4], '')
-  call s:Hi('GitGutterChange', s:oc['orange'][4], '')
+  call s:Hi('GitGutterChange', s:oc['yellow'][2], '')
   call s:Hi('GitGutterDelete', s:oc['red'][5], '')
-  call s:Hi('GitGutterChangeDelete', s:oc['orange'][4], '')
+  call s:Hi('GitGutterChangeDelete', s:oc['yellow'][2], '')
 
   " vim-ruby
   call s:Hi('rubyClass', s:oc['violet'][2], '')
