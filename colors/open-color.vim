@@ -337,6 +337,9 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
   call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][9])
   call s:Hi('WildMenu', s:oc['gray'][9], s:oc['lime'][4])
 
+  " :set all
+  call s:Hi('Title', s:oc['indigo'][3], '')
+
   call s:Hi('Conceal', s:oc['gray'][6], s:oc['gray'][9])
   call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][8])
 
