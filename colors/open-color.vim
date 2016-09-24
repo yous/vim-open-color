@@ -252,8 +252,10 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
   call s:Hi('Visual', '', s:oc['gray'][6])
   call s:Hi('VisualNOS', '', s:oc['gray'][6])
 
+  " Comment
   call s:Hi('Comment', s:oc['gray'][6], '')
 
+  " Constant
   call s:Hi('Constant', s:oc['yellow'][4], '')
   call s:Hi('String', s:oc['lime'][4], '')
   call s:Hi('Character', s:oc['orange'][4], '')
@@ -261,25 +263,33 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
   call s:Hi('Boolean', s:oc['orange'][4], '')
   call s:Hi('Float', s:oc['orange'][4], '')
 
+  " Identifier
   call s:Hi('Identifier', s:oc['yellow'][2], '')
 
+  " Statement
   call s:Hi('Statement', s:oc['violet'][2], '')
   call s:Hi('Conditional', s:oc['indigo'][3], '')
   call s:Hi('Repeat', s:oc['indigo'][3], '')
   call s:Hi('Operator', s:oc['cyan'][2], '')
 
+  " PreProc
   call s:Hi('PreProc', s:oc['violet'][2], '')
 
+  " Type
   call s:Hi('Type', s:oc['cyan'][2], '')
 
+  " Special
   call s:Hi('Special', s:oc['yellow'][2], '')
   call s:Hi('Delimiter', s:oc['gray'][2], '')
   call s:Hi('StringDelimiter', s:oc['gray'][2], '')
 
+  " Underlined
   call s:Hi('Underlined', s:oc['cyan'][2], '')
 
+  " Error"
   call s:Hi('Error', s:oc['gray'][2], s:oc['red'][5])
 
+  " Todo
   call s:Hi('Todo', s:oc['gray'][9], s:oc['lime'][4])
 
   " set textwidth=80 colorcolumn+=1
