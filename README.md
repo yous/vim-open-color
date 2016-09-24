@@ -5,13 +5,13 @@ v1.1.0.
 
 ## Screenshots
 
-### 256-color
-
-![open-color.vim in 256 colors](https://github.com/yous/vim-open-color/raw/master/screenshot_256.png)
-
 ### GUI
 
-![open-color.vim in GUI](https://github.com/yous/vim-open-color/raw/master/screenshot_gui.png)
+<img width="710" alt="open-color.vim in GUI" src="https://github.com/yous/vim-open-color/raw/master/screenshot_gui.png">
+
+### 256-color
+
+<img width="710" alt="open-color.vim in 256 colors" src="https://github.com/yous/vim-open-color/raw/master/screenshot_256.png">
 
 ## Installation
 
