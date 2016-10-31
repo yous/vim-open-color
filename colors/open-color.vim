@@ -308,7 +308,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
   call s:Hi('DiffAdd', 'NONE', s:oc['lime'][9])
   call s:Hi('DiffDelete', 'NONE', s:oc['red'][5])
   call s:Hi('DiffChange', 'NONE', s:oc['indigo'][9])
-  call s:Hi('DiffText', 'NONE', s:oc['cyan'][2])
+  call s:Hi('DiffText', 'NONE', s:oc['cyan'][5])
   call s:Hi('diffAdded', s:oc['lime'][4], '')
   call s:Hi('diffRemoved', s:oc['red'][5], '')
 
@@ -338,7 +338,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
   " call s:Hi('IncSearch', '', '')
 
   " :map, listchars
-  call s:Hi('SpecialKey', s:oc['gray'][9], '')
+  call s:Hi('SpecialKey', s:oc['gray'][6], '')
 
   call s:Hi('StatusLine', s:oc['gray'][9], s:oc['lime'][4])
   call s:Hi('StatusLineNC', s:oc['gray'][9], s:oc['gray'][6])
