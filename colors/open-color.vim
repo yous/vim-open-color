@@ -2,7 +2,7 @@
 " (https://yeun.github.io/open-color/)
 " Maintainer: Chayoung You <yousbe@gmail.com>
 " URL: https://github.com/yous/vim-open-color
-" Version: 1.0.1
+" Version: 1.1.0
 " License: The MIT License (MIT)
 
 let s:save_cpo = &cpo
