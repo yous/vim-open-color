@@ -8,6 +8,8 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
+let s:background = &background
+
 " Returns an approximate gray index for the given gray level
 function! s:GrayNumber(x)
   if &t_Co == 88
@@ -245,134 +247,261 @@ if exists('g:syntax_on')
 endif
 
 if has('gui_running') || &t_Co == 88 || &t_Co == 256
-  " :help group-name
-  " :help highlight-groups
-  call s:Hi('Normal', s:oc['gray'][2], s:oc['gray'][8])
-  call s:Hi('LineNr', s:oc['gray'][6], '')
-  call s:Hi('Visual', '', s:oc['gray'][6])
-  call s:Hi('VisualNOS', '', s:oc['gray'][6])
+  if s:background ==# 'dark'
+    " :help group-name
+    " :help highlight-groups
+    call s:Hi('Normal', s:oc['gray'][2], s:oc['gray'][8])
+    call s:Hi('LineNr', s:oc['gray'][6], '')
+    call s:Hi('Visual', '', s:oc['gray'][6])
+    call s:Hi('VisualNOS', '', s:oc['gray'][6])
 
-  " Comment
-  call s:Hi('Comment', s:oc['gray'][6], '')
+    " Comment
+    call s:Hi('Comment', s:oc['gray'][6], '')
 
-  " Constant
-  call s:Hi('Constant', s:oc['yellow'][4], '')
-  call s:Hi('String', s:oc['lime'][4], '')
-  call s:Hi('Character', s:oc['orange'][4], '')
-  call s:Hi('Number', s:oc['orange'][4], '')
-  call s:Hi('Boolean', s:oc['orange'][4], '')
-  call s:Hi('Float', s:oc['orange'][4], '')
+    " Constant
+    call s:Hi('Constant', s:oc['yellow'][4], '')
+    call s:Hi('String', s:oc['lime'][4], '')
+    call s:Hi('Character', s:oc['orange'][4], '')
+    call s:Hi('Number', s:oc['orange'][4], '')
+    call s:Hi('Boolean', s:oc['orange'][4], '')
+    call s:Hi('Float', s:oc['orange'][4], '')
 
-  " Identifier
-  call s:Hi('Identifier', s:oc['yellow'][2], '')
+    " Identifier
+    call s:Hi('Identifier', s:oc['yellow'][2], '')
 
-  " Statement
-  call s:Hi('Statement', s:oc['violet'][2], '')
-  call s:Hi('Conditional', s:oc['indigo'][3], '')
-  call s:Hi('Repeat', s:oc['indigo'][3], '')
-  call s:Hi('Operator', s:oc['cyan'][2], '')
+    " Statement
+    call s:Hi('Statement', s:oc['violet'][2], '')
+    call s:Hi('Conditional', s:oc['indigo'][3], '')
+    call s:Hi('Repeat', s:oc['indigo'][3], '')
+    call s:Hi('Operator', s:oc['cyan'][2], '')
 
-  " PreProc
-  call s:Hi('PreProc', s:oc['violet'][2], '')
+    " PreProc
+    call s:Hi('PreProc', s:oc['violet'][2], '')
 
-  " Type
-  call s:Hi('Type', s:oc['cyan'][2], '')
+    " Type
+    call s:Hi('Type', s:oc['cyan'][2], '')
 
-  " Special
-  call s:Hi('Special', s:oc['yellow'][2], '')
-  call s:Hi('Delimiter', s:oc['gray'][2], '')
-  call s:Hi('StringDelimiter', s:oc['gray'][2], '')
+    " Special
+    call s:Hi('Special', s:oc['yellow'][2], '')
+    call s:Hi('Delimiter', s:oc['gray'][2], '')
+    call s:Hi('StringDelimiter', s:oc['gray'][2], '')
 
-  " Underlined
-  call s:Hi('Underlined', s:oc['cyan'][2], '')
+    " Underlined
+    call s:Hi('Underlined', s:oc['cyan'][2], '')
 
-  " Error"
-  call s:Hi('Error', s:oc['gray'][2], s:oc['red'][5])
+    " Error"
+    call s:Hi('Error', s:oc['gray'][2], s:oc['red'][5])
 
-  " Todo
-  call s:Hi('Todo', s:oc['gray'][9], s:oc['lime'][4])
+    " Todo
+    call s:Hi('Todo', s:oc['gray'][9], s:oc['lime'][4])
 
-  " set textwidth=80 colorcolumn+=1
-  call s:Hi('ColorColumn', '', s:oc['gray'][9])
+    " set textwidth=80 colorcolumn+=1
+    call s:Hi('ColorColumn', '', s:oc['gray'][9])
 
-  " set cursorline
-  call s:Hi('CursorLine', '', s:oc['gray'][9])
-  call s:Hi('CursorLineNr', s:oc['yellow'][2], s:oc['gray'][9])
-  " set cursorcolumn
-  call s:Hi('CursorColumn', '', s:oc['gray'][9])
-  highlight CursorLine cterm=NONE
-  highlight CursorLineNr cterm=NONE
+    " set cursorline
+    call s:Hi('CursorLine', '', s:oc['gray'][9])
+    call s:Hi('CursorLineNr', s:oc['yellow'][2], s:oc['gray'][9])
+    " set cursorcolumn
+    call s:Hi('CursorColumn', '', s:oc['gray'][9])
+    highlight CursorLine cterm=NONE
+    highlight CursorLineNr cterm=NONE
 
-  call s:Hi('Directory', s:oc['indigo'][3], '')
+    call s:Hi('Directory', s:oc['indigo'][3], '')
 
-  call s:Hi('DiffAdd', 'NONE', s:oc['lime'][9])
-  call s:Hi('DiffDelete', 'NONE', s:oc['red'][5])
-  call s:Hi('DiffChange', 'NONE', s:oc['indigo'][9])
-  call s:Hi('DiffText', 'NONE', s:oc['cyan'][5])
-  call s:Hi('diffAdded', s:oc['lime'][4], '')
-  call s:Hi('diffRemoved', s:oc['red'][5], '')
+    call s:Hi('DiffAdd', 'NONE', s:oc['lime'][9])
+    call s:Hi('DiffDelete', 'NONE', s:oc['red'][5])
+    call s:Hi('DiffChange', 'NONE', s:oc['indigo'][9])
+    call s:Hi('DiffText', 'NONE', s:oc['cyan'][5])
+    call s:Hi('diffAdded', s:oc['lime'][4], '')
+    call s:Hi('diffRemoved', s:oc['red'][5], '')
 
-  call s:Hi('VertSplit', s:oc['gray'][9], s:oc['gray'][9])
+    call s:Hi('VertSplit', s:oc['gray'][9], s:oc['gray'][9])
 
-  call s:Hi('Folded', s:oc['gray'][6], s:oc['gray'][8])
-  " set foldcolumn=1
-  call s:Hi('FoldColumn', s:oc['gray'][6], s:oc['gray'][8])
-  call s:Hi('MatchParen', '', s:oc['gray'][6])
+    call s:Hi('Folded', s:oc['gray'][6], s:oc['gray'][8])
+    " set foldcolumn=1
+    call s:Hi('FoldColumn', s:oc['gray'][6], s:oc['gray'][8])
+    call s:Hi('MatchParen', '', s:oc['gray'][6])
 
-  " -- INSERT --
-  call s:Hi('ModeMsg', s:oc['gray'][2], '')
-  call s:Hi('MoreMsg', s:oc['lime'][4], '')
-  " Search hit bottom
-  call s:Hi('WarningMsg', s:oc['red'][5], '')
+    " -- INSERT --
+    call s:Hi('ModeMsg', s:oc['gray'][2], '')
+    call s:Hi('MoreMsg', s:oc['lime'][4], '')
+    " Search hit bottom
+    call s:Hi('WarningMsg', s:oc['red'][5], '')
 
-  " let &showbreak = '> '
-  call s:Hi('NonText', s:oc['gray'][6], '')
+    " let &showbreak = '> '
+    call s:Hi('NonText', s:oc['gray'][6], '')
 
-  " Popup menu
-  call s:Hi('Pmenu', s:oc['gray'][2], s:oc['gray'][9])
-  call s:Hi('PmenuSel', s:oc['gray'][9], s:oc['gray'][2])
-  call s:Hi('PmenuSbar', '', s:oc['gray'][6])
-  call s:Hi('PmenuThumb', '', s:oc['gray'][2])
+    " Popup menu
+    call s:Hi('Pmenu', s:oc['gray'][2], s:oc['gray'][9])
+    call s:Hi('PmenuSel', s:oc['gray'][9], s:oc['gray'][2])
+    call s:Hi('PmenuSbar', '', s:oc['gray'][6])
+    call s:Hi('PmenuThumb', '', s:oc['gray'][2])
 
-  call s:Hi('Search', s:oc['gray'][9], s:oc['yellow'][2])
-  " call s:Hi('IncSearch', '', '')
+    call s:Hi('Search', s:oc['gray'][9], s:oc['yellow'][2])
+    " call s:Hi('IncSearch', '', '')
 
-  " :map, listchars
-  call s:Hi('SpecialKey', s:oc['gray'][6], '')
+    " :map, listchars
+    call s:Hi('SpecialKey', s:oc['gray'][6], '')
 
-  call s:Hi('StatusLine', s:oc['gray'][9], s:oc['lime'][4])
-  call s:Hi('StatusLineNC', s:oc['gray'][9], s:oc['gray'][6])
-  call s:Hi('TabLineFill', s:oc['gray'][9], '')
-  call s:Hi('TabLineSel', s:oc['gray'][8], s:oc['gray'][6])
-  call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][9])
-  call s:Hi('WildMenu', s:oc['gray'][9], s:oc['lime'][4])
+    call s:Hi('StatusLine', s:oc['gray'][9], s:oc['lime'][4])
+    call s:Hi('StatusLineNC', s:oc['gray'][9], s:oc['gray'][6])
+    call s:Hi('TabLineFill', s:oc['gray'][9], '')
+    call s:Hi('TabLineSel', s:oc['gray'][8], s:oc['gray'][6])
+    call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][9])
+    call s:Hi('WildMenu', s:oc['gray'][9], s:oc['lime'][4])
 
-  " :set all
-  call s:Hi('Title', s:oc['indigo'][3], '')
+    " :set all
+    call s:Hi('Title', s:oc['indigo'][3], '')
 
-  call s:Hi('Conceal', s:oc['gray'][6], s:oc['gray'][9])
-  call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][8])
+    call s:Hi('Conceal', s:oc['gray'][6], s:oc['gray'][9])
+    call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][8])
 
-  " vim-gitgutter
-  call s:Hi('GitGutterAdd', s:oc['lime'][4], '')
-  call s:Hi('GitGutterChange', s:oc['yellow'][2], '')
-  call s:Hi('GitGutterDelete', s:oc['red'][5], '')
-  call s:Hi('GitGutterChangeDelete', s:oc['yellow'][2], '')
+    " vim-gitgutter
+    call s:Hi('GitGutterAdd', s:oc['lime'][4], '')
+    call s:Hi('GitGutterChange', s:oc['yellow'][2], '')
+    call s:Hi('GitGutterDelete', s:oc['red'][5], '')
+    call s:Hi('GitGutterChangeDelete', s:oc['yellow'][2], '')
 
-  " vim-ruby
-  call s:Hi('rubyClass', s:oc['violet'][2], '')
-  call s:Hi('rubyRegexp', s:oc['lime'][4], '')
-  call s:Hi('rubyRegexpDelimiter', s:oc['lime'][4], '')
-  call s:Hi('rubyArrayDelimiter', s:oc['gray'][2], '')
-  call s:Hi('rubyBlockParameterList', s:oc['gray'][2], '')
-  call s:Hi('rubyCurlyBlockDelimiter', s:oc['gray'][2], '')
-  call s:Hi('rubyInterpolationDelimiter', s:oc['orange'][4], '')
-  " ARGV, $stdout
-  call s:Hi('rubyPredefinedIdentifier', s:oc['red'][5], '')
+    " vim-ruby
+    call s:Hi('rubyClass', s:oc['violet'][2], '')
+    call s:Hi('rubyRegexp', s:oc['lime'][4], '')
+    call s:Hi('rubyRegexpDelimiter', s:oc['lime'][4], '')
+    call s:Hi('rubyArrayDelimiter', s:oc['gray'][2], '')
+    call s:Hi('rubyBlockParameterList', s:oc['gray'][2], '')
+    call s:Hi('rubyCurlyBlockDelimiter', s:oc['gray'][2], '')
+    call s:Hi('rubyInterpolationDelimiter', s:oc['orange'][4], '')
+    " ARGV, $stdout
+    call s:Hi('rubyPredefinedIdentifier', s:oc['red'][5], '')
+  else
+    " :help group-name
+    " :help highlight-groups
+    call s:Hi('Normal', s:oc['gray'][8], s:oc['gray'][1])
+    call s:Hi('LineNr', s:oc['gray'][6], '')
+    call s:Hi('Visual', '', s:oc['gray'][2])
+    call s:Hi('VisualNOS', '', s:oc['gray'][2])
+
+    " Comment
+    call s:Hi('Comment', s:oc['gray'][6], '')
+
+    " Constant
+    call s:Hi('Constant', s:oc['yellow'][8], '')
+    call s:Hi('String', s:oc['lime'][8], '')
+    call s:Hi('Character', s:oc['orange'][7], '')
+    call s:Hi('Number', s:oc['orange'][7], '')
+    call s:Hi('Boolean', s:oc['orange'][7], '')
+    call s:Hi('Float', s:oc['orange'][7], '')
+
+    " Identifier
+    call s:Hi('Identifier', s:oc['yellow'][7], '')
+
+    " Statement
+    call s:Hi('Statement', s:oc['violet'][6], '')
+    call s:Hi('Conditional', s:oc['indigo'][5], '')
+    call s:Hi('Repeat', s:oc['indigo'][5], '')
+    call s:Hi('Operator', s:oc['cyan'][5], '')
+
+    " PreProc
+    call s:Hi('PreProc', s:oc['violet'][6], '')
+
+    " Type
+    call s:Hi('Type', s:oc['cyan'][5], '')
+
+    " Special
+    call s:Hi('Special', s:oc['yellow'][7], '')
+    call s:Hi('Delimiter', s:oc['gray'][8], '')
+    call s:Hi('StringDelimiter', s:oc['gray'][8], '')
+
+    " Underlined
+    call s:Hi('Underlined', s:oc['cyan'][5], '')
+
+    " Error
+    call s:Hi('Error', s:oc['gray'][8], s:oc['red'][5])
+
+    " Todo
+    call s:Hi('Todo', s:oc['gray'][9], s:oc['lime'][4])
+
+    " set textwidth=80 colorcolumn+=1
+    call s:Hi('ColorColumn', '', s:oc['gray'][0])
+
+    " set cursorline
+    call s:Hi('CursorLine', '', s:oc['gray'][0])
+    call s:Hi('CursorLineNr', s:oc['yellow'][7], s:oc['gray'][0])
+    " set cursorcolumn
+    call s:Hi('CursorColumn', '', s:oc['gray'][9])
+    highlight CursorLine cterm=NONE
+    highlight CursorLineNr cterm=NONE
+
+    call s:Hi('Directory', s:oc['indigo'][5], '')
+
+    call s:Hi('DiffAdd', 'NONE', s:oc['lime'][3])
+    call s:Hi('DiffDelete', 'NONE', s:oc['red'][5])
+    call s:Hi('DiffChange', 'NONE', s:oc['indigo'][2])
+    call s:Hi('DiffText', 'NONE', s:oc['cyan'][1])
+    call s:Hi('diffAdded', s:oc['lime'][8], '')
+    call s:Hi('diffRemoved', s:oc['red'][5], '')
+
+    call s:Hi('VertSplit', s:oc['gray'][3], s:oc['gray'][3])
+
+    call s:Hi('Folded', s:oc['gray'][6], s:oc['gray'][1])
+    " set foldcolumn=1
+    call s:Hi('FoldColumn', s:oc['gray'][6], s:oc['gray'][1])
+    call s:Hi('MatchParen', '', s:oc['gray'][3])
+
+    " -- INSERT --
+    call s:Hi('ModeMsg', s:oc['gray'][8], '')
+    call s:Hi('MoreMsg', s:oc['lime'][8], '')
+    " Search hit bottom
+    call s:Hi('WarningMsg', s:oc['red'][5], '')
+
+    " let &showbreak = '> '
+    call s:Hi('NonText', s:oc['gray'][6], '')
+
+    " Popup menu
+    call s:Hi('Pmenu', s:oc['gray'][8], s:oc['gray'][2])
+    call s:Hi('PmenuSel', s:oc['gray'][2], s:oc['gray'][6])
+    call s:Hi('PmenuSbar', '', s:oc['gray'][3])
+    call s:Hi('PmenuThumb', '', s:oc['gray'][8])
+
+    call s:Hi('Search', s:oc['gray'][9], s:oc['yellow'][2])
+    " call s:Hi('IncSearch', '', '')
+
+    " :map, listchars
+    call s:Hi('SpecialKey', s:oc['gray'][6], '')
+
+    call s:Hi('StatusLine', s:oc['gray'][3], s:oc['lime'][8])
+    call s:Hi('StatusLineNC', s:oc['gray'][3], s:oc['gray'][6])
+    call s:Hi('TabLineFill', s:oc['gray'][1], '')
+    call s:Hi('TabLineSel', s:oc['gray'][1], s:oc['gray'][6])
+    call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][2])
+    call s:Hi('WildMenu', s:oc['gray'][1], s:oc['lime'][8])
+
+    " :set all
+    call s:Hi('Title', s:oc['indigo'][5], '')
+
+    call s:Hi('Conceal', s:oc['gray'][6], s:oc['gray'][2])
+    call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][1])
+
+    " vim-gitgutter
+    call s:Hi('GitGutterAdd', s:oc['lime'][8], '')
+    call s:Hi('GitGutterChange', s:oc['yellow'][7], '')
+    call s:Hi('GitGutterDelete', s:oc['red'][7], '')
+    call s:Hi('GitGutterChangeDelete', s:oc['yellow'][7], '')
+
+    " vim-ruby
+    call s:Hi('rubyClass', s:oc['violet'][6], '')
+    call s:Hi('rubyRegexp', s:oc['lime'][8], '')
+    call s:Hi('rubyRegexpDelimiter', s:oc['lime'][8], '')
+    call s:Hi('rubyArrayDelimiter', s:oc['gray'][8], '')
+    call s:Hi('rubyBlockParameterList', s:oc['gray'][8], '')
+    call s:Hi('rubyCurlyBlockDelimiter', s:oc['gray'][8], '')
+    call s:Hi('rubyInterpolationDelimiter', s:oc['orange'][6], '')
+    " ARGV, $stdout
+    call s:Hi('rubyPredefinedIdentifier', s:oc['red'][5], '')
+  endif
 endif
 
 let g:colors_name = 'open-color'
-let &background = 'dark'
+let &background = s:background
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
