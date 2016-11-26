@@ -252,8 +252,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " :help highlight-groups
     call s:Hi('Normal', s:oc['gray'][2], s:oc['gray'][8])
     call s:Hi('LineNr', s:oc['gray'][6], '')
-    call s:Hi('Visual', '', s:oc['gray'][6])
-    call s:Hi('VisualNOS', '', s:oc['gray'][6])
+    call s:Hi('Visual', '', s:oc['gray'][9])
+    call s:Hi('VisualNOS', '', s:oc['gray'][9])
 
     " Comment
     call s:Hi('Comment', s:oc['gray'][6], '')
@@ -377,8 +377,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " :help highlight-groups
     call s:Hi('Normal', s:oc['gray'][8], s:oc['gray'][1])
     call s:Hi('LineNr', s:oc['gray'][6], '')
-    call s:Hi('Visual', '', s:oc['gray'][2])
-    call s:Hi('VisualNOS', '', s:oc['gray'][2])
+    call s:Hi('Visual', '', s:oc['gray'][3])
+    call s:Hi('VisualNOS', '', s:oc['gray'][3])
 
     " Comment
     call s:Hi('Comment', s:oc['gray'][6], '')
