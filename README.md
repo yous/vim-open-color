@@ -22,7 +22,7 @@ v1.4.0.
     1. Add `Plugin 'yous/vim-open-color'` to `.vimrc`
     2. Run `:PluginInstall`
 - [NeoBundle](https://github.com/Shougo/neobundle.vim)
-    1. Add `NeoBundle 'yous/vim-open-color` to `.vimrc`
+    1. Add `NeoBundle 'yous/vim-open-color'` to `.vimrc`
     2. Run `:NeoBundleInstall`
 - [vim-plug](https://github.com/junegunn/vim-plug)
     1. Add `Plug 'yous/vim-open-color'` to `.vimrc`
