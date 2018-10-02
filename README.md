@@ -68,4 +68,4 @@ Conversion from original colors to 256 colors has done according to
 
 ## License
 
-Copyright © 2016 Chayoung You. See [LICENSE.txt](LICENSE.txt) for details.
+Copyright © Chayoung You. See [LICENSE.txt](LICENSE.txt) for details.
