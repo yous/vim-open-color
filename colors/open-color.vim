@@ -10,171 +10,10 @@ set cpo&vim
 
 let s:background = &background
 
-" Returns an approximate gray index for the given gray level
-function! s:GrayNumber(x)
-  if &t_Co == 88
-    if a:x < 23
-      return 0
-    elseif a:x < 69
-      return 1
-    elseif a:x < 103
-      return 2
-    elseif a:x < 127
-      return 3
-    elseif a:x < 150
-      return 4
-    elseif a:x < 173
-      return 5
-    elseif a:x < 196
-      return 6
-    elseif a:x < 219
-      return 7
-    elseif a:x < 243
-      return 8
-    else
-      return 9
-    endif
-  else
-    if a:x < 14
-      return 0
-    else
-      let l:n = (a:x - 8) / 10
-      let l:m = (a:x - 8) % 10
-      if l:m < 5
-        return l:n
-      else
-        return l:n + 1
-      endif
-    endif
-  endif
-endfunction
-
-" Returns the actual gray level represented by the gray index
-function! s:GrayLevel(n)
-  if &t_Co == 88
-    return [0, 46, 92, 115, 139, 162, 185, 208, 231, 235][a:n]
-  else
-    if a:n == 0
-      return 0
-    else
-      return a:n * 10 + 8
-    endif
-  endif
-endfunction
-
-" Returns the palette index for the given gray index
-function! s:GrayColor(n)
-  if &t_Co == 88
-    if a:n == 0
-      return 16
-    elseif a:n == 9
-      return 79
-    else
-      return 79 + a:n
-    endif
-  else
-    if a:n == 0
-      return 16
-    elseif a:n == 25
-      return 231
-    else
-      return 231 + a:n
-    endif
-  endif
-endfunction
-
-" Returns an approximate color index for the given color level
-function! s:RgbNumber(x)
-  if &t_Co == 88
-    if a:x < 69
-      return 0
-    elseif a:x < 172
-      return 1
-    elseif a:x < 230
-      return 2
-    else
-      return 3
-    endif
-  else
-    if a:x < 75
-      return 0
-    else
-      let l:n = (a:x - 55) / 40
-      let l:m = (a:x - 55) % 40
-      if l:m < 20
-        return l:n
-      else
-        return l:n + 1
-      endif
-    endif
-  endif
-endfunction
-
-" Returns the actual color level for the given color index
-function! s:RgbLevel(n)
-  if &t_Co == 88
-    return [0, 139, 205, 255][a:n]
-  else
-    if a:n == 0
-      return 0
-    else
-      return a:n * 40 + 55
-    endif
-  endif
-endfunction
-
-" Returns the palette index for the given R, G, B color indices
-function! s:RgbColor(x, y, z)
-  if &t_Co == 88
-    return 16 + a:x * 16 + a:y * 4 + a:z
-  else
-    return 16 + a:x * 36 + a:y * 6 + a:z
-  endif
-endfunction
-
-" Returns the palette index to approximate the 'rrggbb' hex string
-function! s:RgbTo256(rgb)
-  let l:r = str2nr(strpart(a:rgb, 0, 2), 16)
-  let l:g = str2nr(strpart(a:rgb, 2, 2), 16)
-  let l:b = str2nr(strpart(a:rgb, 4, 2), 16)
-
-  " Get the closest gray
-  let l:gx = s:GrayNumber(l:r)
-  let l:gy = s:GrayNumber(l:g)
-  let l:gz = s:GrayNumber(l:b)
-
-  " Get the closest color
-  let l:x = s:RgbNumber(l:r)
-  let l:y = s:RgbNumber(l:g)
-  let l:z = s:RgbNumber(l:b)
-
-  if l:gx == l:gy && l:gy == l:gz
-    " There are two possibilities
-    let l:dgr = s:GrayLevel(l:gx) - l:r
-    let l:dgg = s:GrayLevel(l:gy) - l:g
-    let l:dgb = s:GrayLevel(l:gz) - l:b
-    let l:dgrey = l:dgr * l:dgr + l:dgg * l:dgg + l:dgb * l:dgb
-    let l:dr = s:RgbLevel(l:gx) - l:r
-    let l:dg = s:RgbLevel(l:gy) - l:g
-    let l:db = s:RgbLevel(l:gz) - l:b
-    let l:drgb = l:dr * l:dr + l:dg * l:dg + l:db * l:db
-    if l:dgrey < l:drgb
-      " Use the gray
-      return s:GrayColor(l:gx)
-    else
-      " Use the color
-      return s:RgbColor(l:x, l:y, l:z)
-    endif
-  else
-    " Only one possibility
-    return s:RgbColor(l:x, l:y, l:z)
-  endif
-endfunction
-
 function! s:Hi(item, fg, bg)
   if !empty(a:fg)
     if a:fg !=# 'NONE'
-      let l:fg_256 = s:RgbTo256(a:fg)
+      let l:fg_256 = s:rgb_map[a:fg]
       let l:fg_gui = printf('#%s', a:fg)
     else
       let l:fg_256 = a:fg
@@ -185,7 +24,7 @@ function! s:Hi(item, fg, bg)
   endif
   if !empty(a:bg)
     if a:bg !=# 'NONE'
-      let l:bg_256 = s:RgbTo256(a:bg)
+      let l:bg_256 = s:rgb_map[a:bg]
       let l:bg_gui = printf('#%s', a:bg)
     else
       let l:bg_256 = a:bg
@@ -196,10 +35,8 @@ function! s:Hi(item, fg, bg)
   endif
 endfunction
 
-if !exists('s:oc')
+if !exists('s:rgb_map')
   let s:oc = {}
-  let s:oc['white'] = 'ffffff'
-  let s:oc['black'] = '000000'
   let s:oc['gray'] = [
         \ 'f8f9fa', 'f1f3f5', 'e9ecef', 'dee2e6', 'ced4da',
         \ 'adb5bd', '868e96', '495057', '343a40', '212529']
@@ -239,6 +76,28 @@ if !exists('s:oc')
   let s:oc['orange'] = [
         \ 'fff4e6', 'ffe8cc', 'ffd8a8', 'ffc078', 'ffa94d',
         \ 'ff922b', 'fd7e14', 'f76707', 'e8590c', 'd9480f']
+
+  let s:oc_256 = {
+        \ 'gray': [15, 255, 255, 254, 252, 249, 245, 239, 237, 235],
+        \ 'red': [15, 224, 224, 217, 210, 203, 203, 167, 160, 160],
+        \ 'pink': [255, 224, 218, 218, 211, 204, 168, 161, 161, 125],
+        \ 'grape': [255, 225, 219, 213, 177, 171, 134, 128, 127, 91],
+        \ 'violet': [255, 189, 183, 141, 141, 99, 99, 62, 57, 56],
+        \ 'indigo': [255, 189, 147, 111, 69, 69, 27, 27, 27, 26],
+        \ 'blue': [255, 153, 153, 75, 75, 75, 32, 32, 25, 25],
+        \ 'cyan': [195, 195, 116, 80, 45, 38, 38, 31, 31, 6],
+        \ 'teal': [195, 158, 122, 79, 43, 43, 36, 36, 29, 29],
+        \ 'green': [195, 194, 157, 114, 78, 77, 71, 71, 35, 28],
+        \ 'lime': [230, 230, 193, 192, 149, 112, 112, 70, 70, 64],
+        \ 'yellow': [230, 230, 229, 221, 220, 220, 214, 214, 208, 208],
+        \ 'orange': [255, 223, 223, 215, 215, 208, 208, 202, 166, 166] }
+
+  let s:rgb_map = {}
+  for s:color in keys(s:oc)
+    for s:number in range(len(s:oc[s:color]))
+      let s:rgb_map[s:oc[s:color][s:number]] = s:oc_256[s:color][s:number]
+    endfor
+  endfor
 endif
 
 highlight clear
@@ -250,10 +109,10 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
   if s:background ==# 'dark'
     " :help group-name
     " :help highlight-groups
-    call s:Hi('Normal', s:oc['gray'][2], s:oc['gray'][8])
+    call s:Hi('Normal', s:oc['gray'][2], s:oc['gray'][9])
     call s:Hi('LineNr', s:oc['gray'][6], '')
-    call s:Hi('Visual', '', s:oc['gray'][9])
-    call s:Hi('VisualNOS', '', s:oc['gray'][9])
+    call s:Hi('Visual', '', s:oc['gray'][8])
+    call s:Hi('VisualNOS', '', s:oc['gray'][8])
 
     " Comment
     call s:Hi('Comment', s:oc['gray'][6], '')
@@ -296,13 +155,13 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Todo', s:oc['gray'][9], s:oc['lime'][4])
 
     " set textwidth=80 colorcolumn+=1
-    call s:Hi('ColorColumn', '', s:oc['gray'][9])
+    call s:Hi('ColorColumn', '', s:oc['gray'][8])
 
     " set cursorline
-    call s:Hi('CursorLine', '', s:oc['gray'][9])
-    call s:Hi('CursorLineNr', s:oc['yellow'][2], s:oc['gray'][9])
+    call s:Hi('CursorLine', '', s:oc['gray'][8])
+    call s:Hi('CursorLineNr', s:oc['yellow'][2], s:oc['gray'][8])
     " set cursorcolumn
-    call s:Hi('CursorColumn', '', s:oc['gray'][9])
+    call s:Hi('CursorColumn', '', s:oc['gray'][8])
     highlight CursorLine cterm=NONE
     highlight CursorLineNr cterm=NONE
 
@@ -315,11 +174,11 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('diffAdded', s:oc['lime'][4], '')
     call s:Hi('diffRemoved', s:oc['red'][5], '')
 
-    call s:Hi('VertSplit', s:oc['gray'][9], s:oc['gray'][9])
+    call s:Hi('VertSplit', s:oc['gray'][8], s:oc['gray'][8])
 
-    call s:Hi('Folded', s:oc['gray'][6], s:oc['gray'][8])
+    call s:Hi('Folded', s:oc['gray'][6], s:oc['gray'][9])
     " set foldcolumn=1
-    call s:Hi('FoldColumn', s:oc['gray'][6], s:oc['gray'][8])
+    call s:Hi('FoldColumn', s:oc['gray'][6], s:oc['gray'][9])
     call s:Hi('MatchParen', '', s:oc['gray'][6])
 
     " -- INSERT --
@@ -332,7 +191,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('NonText', s:oc['gray'][6], '')
 
     " Popup menu
-    call s:Hi('Pmenu', s:oc['gray'][2], s:oc['gray'][9])
+    call s:Hi('Pmenu', s:oc['gray'][2], s:oc['gray'][8])
     call s:Hi('PmenuSel', s:oc['gray'][9], s:oc['gray'][2])
     call s:Hi('PmenuSbar', '', s:oc['gray'][6])
     call s:Hi('PmenuThumb', '', s:oc['gray'][2])
@@ -343,18 +202,21 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " :map, listchars
     call s:Hi('SpecialKey', s:oc['gray'][6], '')
 
-    call s:Hi('StatusLine', s:oc['gray'][9], s:oc['lime'][4])
-    call s:Hi('StatusLineNC', s:oc['gray'][9], s:oc['gray'][6])
-    call s:Hi('TabLineFill', s:oc['gray'][9], '')
-    call s:Hi('TabLineSel', s:oc['gray'][8], s:oc['gray'][6])
-    call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][9])
+    call s:Hi('StatusLine', s:oc['gray'][8], s:oc['lime'][4])
+    call s:Hi('StatusLineNC', s:oc['gray'][8], s:oc['gray'][6])
+    call s:Hi('TabLineFill', s:oc['gray'][7], '')
+    call s:Hi('TabLineSel', s:oc['gray'][2], s:oc['gray'][6])
+    call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][8])
     call s:Hi('WildMenu', s:oc['gray'][9], s:oc['lime'][4])
+    highlight TabLineSel cterm=NONE
+    highlight TabLine cterm=NONE
 
     " :set all
     call s:Hi('Title', s:oc['indigo'][3], '')
 
-    call s:Hi('Conceal', s:oc['gray'][6], s:oc['gray'][9])
-    call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][8])
+    " :set conceallevel=1
+    call s:Hi('Conceal', s:oc['gray'][6], s:oc['gray'][8])
+    call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][9])
 
     " vim-gitgutter
     call s:Hi('GitGutterAdd', s:oc['lime'][4], '')
@@ -435,7 +297,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     call s:Hi('DiffAdd', 'NONE', s:oc['lime'][3])
     call s:Hi('DiffDelete', 'NONE', s:oc['red'][5])
-    call s:Hi('DiffChange', 'NONE', s:oc['indigo'][2])
+    call s:Hi('DiffChange', 'NONE', s:oc['indigo'][1])
     call s:Hi('DiffText', 'NONE', s:oc['cyan'][1])
     call s:Hi('diffAdded', s:oc['lime'][8], '')
     call s:Hi('diffRemoved', s:oc['red'][5], '')
@@ -457,9 +319,9 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('NonText', s:oc['gray'][6], '')
 
     " Popup menu
-    call s:Hi('Pmenu', s:oc['gray'][8], s:oc['gray'][2])
+    call s:Hi('Pmenu', s:oc['gray'][8], s:oc['gray'][3])
     call s:Hi('PmenuSel', s:oc['gray'][2], s:oc['gray'][6])
-    call s:Hi('PmenuSbar', '', s:oc['gray'][3])
+    call s:Hi('PmenuSbar', '', s:oc['gray'][4])
     call s:Hi('PmenuThumb', '', s:oc['gray'][8])
 
     call s:Hi('Search', s:oc['gray'][9], s:oc['yellow'][2])
@@ -468,17 +330,19 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " :map, listchars
     call s:Hi('SpecialKey', s:oc['gray'][6], '')
 
-    call s:Hi('StatusLine', s:oc['gray'][3], s:oc['lime'][8])
-    call s:Hi('StatusLineNC', s:oc['gray'][3], s:oc['gray'][6])
-    call s:Hi('TabLineFill', s:oc['gray'][1], '')
+    call s:Hi('StatusLine', s:oc['gray'][4], s:oc['lime'][8])
+    call s:Hi('StatusLineNC', s:oc['gray'][4], s:oc['gray'][6])
+    call s:Hi('TabLineFill', s:oc['gray'][4], '')
     call s:Hi('TabLineSel', s:oc['gray'][1], s:oc['gray'][6])
     call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][2])
     call s:Hi('WildMenu', s:oc['gray'][1], s:oc['lime'][8])
+    highlight TabLineSel cterm=NONE
+    highlight TabLine cterm=NONE
 
     " :set all
     call s:Hi('Title', s:oc['indigo'][5], '')
 
-    call s:Hi('Conceal', s:oc['gray'][6], s:oc['gray'][2])
+    call s:Hi('Conceal', s:oc['gray'][6], s:oc['gray'][3])
     call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][1])
 
     " vim-gitgutter
