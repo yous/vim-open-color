@@ -1,4 +1,4 @@
-" Dark Vim color scheme using Open Color v1.1.0
+" Dark Vim color scheme using Open Color
 " (https://yeun.github.io/open-color/)
 " Maintainer: Chayoung You <yousbe@gmail.com>
 " URL: https://github.com/yous/vim-open-color
