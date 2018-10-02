@@ -1,6 +1,9 @@
 # open-color.vim
 
 Dark Vim color scheme using [Open Color](https://yeun.github.io/open-color/).
+Conversion from original colors to 256 colors has done according to
+[CIEDE2000](https://en.wikipedia.org/wiki/Color_difference). See
+[the implementation](https://gist.github.com/yous/6907d5ee01c237b9849ab005a13cf621).
 
 ## Screenshots
 
