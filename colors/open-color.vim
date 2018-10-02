@@ -427,7 +427,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('CursorLine', '', s:oc['gray'][0])
     call s:Hi('CursorLineNr', s:oc['yellow'][7], s:oc['gray'][0])
     " set cursorcolumn
-    call s:Hi('CursorColumn', '', s:oc['gray'][9])
+    call s:Hi('CursorColumn', '', s:oc['gray'][0])
     highlight CursorLine cterm=NONE
     highlight CursorLineNr cterm=NONE
 
