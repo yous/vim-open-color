@@ -1,6 +1,6 @@
 # open-color.vim
 
-Dark Vim color scheme using [Open Color](https://yeun.github.io/open-color/).
+Vim color scheme using [Open Color](https://yeun.github.io/open-color/).
 Conversion from original colors to 256 colors has done according to
 [CIEDE2000](https://en.wikipedia.org/wiki/Color_difference). See
 [the implementation](https://gist.github.com/yous/6907d5ee01c237b9849ab005a13cf621).
@@ -9,11 +9,13 @@ Conversion from original colors to 256 colors has done according to
 
 ### GUI
 
-<img width="710" alt="open-color.vim in GUI" src="https://github.com/yous/vim-open-color/raw/master/screenshot_gui.png">
+<img width="710" alt="open-color.vim with dark background in GUI" src="https://github.com/yous/vim-open-color/raw/master/screenshots/dark_gui.png">
+<img width="710" alt="open-color.vim with light background in GUI" src="https://github.com/yous/vim-open-color/raw/master/screenshots/light_gui.png">
 
 ### 256-color
 
-<img width="710" alt="open-color.vim in 256 colors" src="https://github.com/yous/vim-open-color/raw/master/screenshot_256.png">
+<img width="710" alt="open-color.vim with dark background in 256 colors" src="https://github.com/yous/vim-open-color/raw/master/screenshots/dark_256.png">
+<img width="710" alt="open-color.vim with light background in 256 colors" src="https://github.com/yous/vim-open-color/raw/master/screenshots/light_256.png">
 
 ## Installation
 
