@@ -176,7 +176,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('diffAdded', s:oc['lime'][4], '')
     call s:Hi('diffRemoved', s:oc['red'][5], '')
 
-    call s:Hi('VertSplit', s:oc['gray'][8], s:oc['gray'][8])
+    call s:Hi('VertSplit', s:oc['gray'][8], s:oc['gray'][6])
 
     call s:Hi('Folded', s:oc['gray'][6], s:oc['gray'][9])
     " set foldcolumn=1
@@ -306,7 +306,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('diffAdded', s:oc['lime'][8], '')
     call s:Hi('diffRemoved', s:oc['red'][5], '')
 
-    call s:Hi('VertSplit', s:oc['gray'][3], s:oc['gray'][3])
+    call s:Hi('VertSplit', s:oc['gray'][3], s:oc['gray'][6])
 
     call s:Hi('Folded', s:oc['gray'][6], s:oc['gray'][1])
     " set foldcolumn=1
