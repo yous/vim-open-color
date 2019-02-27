@@ -5,8 +5,8 @@
 " Version: 2.0.0
 " License: The MIT License (MIT)
 
-let s:save_cpo = &cpo
-set cpo&vim
+let s:save_cpo = &cpoptions
+set cpoptions&vim
 
 let s:background = &background
 
@@ -367,5 +367,5 @@ endif
 let g:colors_name = 'open-color'
 let &background = s:background
 
-let &cpo = s:save_cpo
+let &cpoptions = s:save_cpo
 unlet s:save_cpo
