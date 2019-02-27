@@ -157,6 +157,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " set textwidth=80 colorcolumn+=1
     call s:Hi('ColorColumn', '', s:oc['gray'][8])
 
+    call s:Hi('Cursor', s:oc['gray'][9], s:oc['gray'][2])
+
     " set cursorline
     call s:Hi('CursorLine', '', s:oc['gray'][8])
     call s:Hi('CursorLineNr', s:oc['yellow'][2], s:oc['gray'][8])
@@ -284,6 +286,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     " set textwidth=80 colorcolumn+=1
     call s:Hi('ColorColumn', '', s:oc['gray'][0])
+
+    call s:Hi('Cursor', s:oc['gray'][1], s:oc['gray'][5])
 
     " set cursorline
     call s:Hi('CursorLine', '', s:oc['gray'][0])
