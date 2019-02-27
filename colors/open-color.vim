@@ -167,10 +167,10 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     call s:Hi('Directory', s:oc['indigo'][3], '')
 
-    call s:Hi('DiffAdd', 'NONE', s:oc['lime'][9])
-    call s:Hi('DiffDelete', 'NONE', s:oc['red'][5])
-    call s:Hi('DiffChange', 'NONE', s:oc['indigo'][9])
-    call s:Hi('DiffText', 'NONE', s:oc['cyan'][5])
+    call s:Hi('DiffAdd', 'NONE', s:oc['green'][9])
+    call s:Hi('DiffDelete', s:oc['gray'][9], s:oc['red'][5])
+    call s:Hi('DiffChange', 'NONE', s:oc['blue'][9])
+    call s:Hi('DiffText', 'NONE', s:oc['violet'][9])
     call s:Hi('diffAdded', s:oc['lime'][4], '')
     call s:Hi('diffRemoved', s:oc['red'][5], '')
 
@@ -296,7 +296,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Directory', s:oc['indigo'][5], '')
 
     call s:Hi('DiffAdd', 'NONE', s:oc['lime'][3])
-    call s:Hi('DiffDelete', 'NONE', s:oc['red'][5])
+    call s:Hi('DiffDelete', s:oc['gray'][1], s:oc['red'][5])
     call s:Hi('DiffChange', 'NONE', s:oc['indigo'][1])
     call s:Hi('DiffText', 'NONE', s:oc['cyan'][1])
     call s:Hi('diffAdded', s:oc['lime'][8], '')
