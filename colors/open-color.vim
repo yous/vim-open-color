@@ -224,13 +224,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Conceal', s:oc['gray'][6], s:oc['gray'][8])
     call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][9])
 
-    " vim-gitgutter
-    call s:Hi('GitGutterAdd', s:oc['lime'][4], '')
-    call s:Hi('GitGutterChange', s:oc['yellow'][2], '')
-    call s:Hi('GitGutterDelete', s:oc['red'][5], '')
-    call s:Hi('GitGutterChangeDelete', s:oc['yellow'][2], '')
-
-    " vim-ruby
+    " syntax/ruby.vim
     call s:Hi('rubyRegexp', s:oc['lime'][4], '')
     call s:Hi('rubyRegexpDelimiter', s:oc['lime'][4], '')
     call s:Hi('rubyArrayDelimiter', s:oc['gray'][2], '')
@@ -239,6 +233,12 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('rubyInterpolationDelimiter', s:oc['orange'][4], '')
     " ARGV, $stdout
     call s:Hi('rubyPredefinedIdentifier', s:oc['red'][5], '')
+
+    " vim-gitgutter
+    call s:Hi('GitGutterAdd', s:oc['lime'][4], '')
+    call s:Hi('GitGutterChange', s:oc['yellow'][2], '')
+    call s:Hi('GitGutterDelete', s:oc['red'][5], '')
+    call s:Hi('GitGutterChangeDelete', s:oc['yellow'][2], '')
   else
     " :help group-name
     " :help highlight-groups
@@ -356,13 +356,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Conceal', s:oc['gray'][6], s:oc['gray'][3])
     call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][1])
 
-    " vim-gitgutter
-    call s:Hi('GitGutterAdd', s:oc['lime'][8], '')
-    call s:Hi('GitGutterChange', s:oc['yellow'][7], '')
-    call s:Hi('GitGutterDelete', s:oc['red'][7], '')
-    call s:Hi('GitGutterChangeDelete', s:oc['yellow'][7], '')
-
-    " vim-ruby
+    " syntax/ruby.vim
     call s:Hi('rubyRegexp', s:oc['lime'][8], '')
     call s:Hi('rubyRegexpDelimiter', s:oc['lime'][8], '')
     call s:Hi('rubyArrayDelimiter', s:oc['gray'][8], '')
@@ -371,6 +365,12 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('rubyInterpolationDelimiter', s:oc['orange'][6], '')
     " ARGV, $stdout
     call s:Hi('rubyPredefinedIdentifier', s:oc['red'][5], '')
+
+    " vim-gitgutter
+    call s:Hi('GitGutterAdd', s:oc['lime'][8], '')
+    call s:Hi('GitGutterChange', s:oc['yellow'][7], '')
+    call s:Hi('GitGutterDelete', s:oc['red'][7], '')
+    call s:Hi('GitGutterChangeDelete', s:oc['yellow'][7], '')
   endif
 endif
 
