@@ -1,8 +1,8 @@
-" Dark Vim color scheme using Open Color
+" Vim color scheme using Open Color
 " (https://yeun.github.io/open-color/)
 " Maintainer: Chayoung You <yousbe@gmail.com>
 " URL: https://github.com/yous/vim-open-color
-" Version: 2.1.1
+" Version: 2.2.0
 " License: The MIT License (MIT)
 
 let s:save_cpo = &cpoptions
