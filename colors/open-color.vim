@@ -143,7 +143,6 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " Special
     call s:Hi('Special', s:oc['yellow'][2], '')
     call s:Hi('Delimiter', s:oc['gray'][2], '')
-    call s:Hi('StringDelimiter', s:oc['gray'][2], '')
 
     " Underlined
     call s:Hi('Underlined', s:oc['cyan'][2], '')
@@ -232,7 +231,6 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('GitGutterChangeDelete', s:oc['yellow'][2], '')
 
     " vim-ruby
-    call s:Hi('rubyClass', s:oc['violet'][2], '')
     call s:Hi('rubyRegexp', s:oc['lime'][4], '')
     call s:Hi('rubyRegexpDelimiter', s:oc['lime'][4], '')
     call s:Hi('rubyArrayDelimiter', s:oc['gray'][2], '')
@@ -278,7 +276,6 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " Special
     call s:Hi('Special', s:oc['yellow'][7], '')
     call s:Hi('Delimiter', s:oc['gray'][8], '')
-    call s:Hi('StringDelimiter', s:oc['gray'][8], '')
 
     " Underlined
     call s:Hi('Underlined', s:oc['cyan'][5], '')
@@ -366,7 +363,6 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('GitGutterChangeDelete', s:oc['yellow'][7], '')
 
     " vim-ruby
-    call s:Hi('rubyClass', s:oc['violet'][6], '')
     call s:Hi('rubyRegexp', s:oc['lime'][8], '')
     call s:Hi('rubyRegexpDelimiter', s:oc['lime'][8], '')
     call s:Hi('rubyArrayDelimiter', s:oc['gray'][8], '')
