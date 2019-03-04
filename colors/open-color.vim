@@ -187,7 +187,10 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('ErrorMsg', s:oc['gray'][2], s:oc['red'][7])
     " -- INSERT --
     call s:Hi('ModeMsg', s:oc['gray'][2], '')
+    " -- More --
     call s:Hi('MoreMsg', s:oc['lime'][4], '')
+    " Press ENTER or type command to continue
+    call s:Hi('Question', s:oc['lime'][4], '')
     " Search hit bottom
     call s:Hi('WarningMsg', s:oc['red'][5], '')
 
@@ -319,7 +322,10 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('ErrorMsg', s:oc['gray'][8], s:oc['red'][5])
     " -- INSERT --
     call s:Hi('ModeMsg', s:oc['gray'][8], '')
+    " -- More --
     call s:Hi('MoreMsg', s:oc['lime'][8], '')
+    " Press ENTER or type command to continue
+    call s:Hi('Question', s:oc['lime'][8], '')
     " Search hit bottom
     call s:Hi('WarningMsg', s:oc['red'][5], '')
 
