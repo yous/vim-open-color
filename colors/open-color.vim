@@ -148,8 +148,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " Underlined
     call s:Hi('Underlined', s:oc['cyan'][2], '')
 
-    " Error"
-    call s:Hi('Error', s:oc['gray'][2], s:oc['red'][5])
+    " Error
+    call s:Hi('Error', s:oc['gray'][2], s:oc['red'][7])
 
     " Todo
     call s:Hi('Todo', s:oc['gray'][9], s:oc['lime'][4])
@@ -183,6 +183,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('FoldColumn', s:oc['gray'][6], s:oc['gray'][9])
     call s:Hi('MatchParen', '', s:oc['gray'][6])
 
+    " :help error-messages
+    call s:Hi('ErrorMsg', s:oc['gray'][2], s:oc['red'][7])
     " -- INSERT --
     call s:Hi('ModeMsg', s:oc['gray'][2], '')
     call s:Hi('MoreMsg', s:oc['lime'][4], '')
@@ -313,6 +315,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('FoldColumn', s:oc['gray'][6], s:oc['gray'][1])
     call s:Hi('MatchParen', '', s:oc['gray'][3])
 
+    " :help error-messages
+    call s:Hi('ErrorMsg', s:oc['gray'][8], s:oc['red'][5])
     " -- INSERT --
     call s:Hi('ModeMsg', s:oc['gray'][8], '')
     call s:Hi('MoreMsg', s:oc['lime'][8], '')
