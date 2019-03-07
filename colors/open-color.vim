@@ -247,16 +247,16 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Comment', s:oc['gray'][6], '')
 
     " Constant
-    call s:Hi('Constant', s:oc['yellow'][8], '')
+    call s:Hi('Constant', s:oc['pink'][6], '')
     call s:Hi('String', s:oc['lime'][8], '')
-    call s:Hi('Character', s:oc['orange'][7], '')
-    call s:Hi('Number', s:oc['orange'][7], '')
-    call s:Hi('Boolean', s:oc['orange'][7], '')
-    call s:Hi('Float', s:oc['orange'][7], '')
+    call s:Hi('Character', s:oc['orange'][8], '')
+    call s:Hi('Number', s:oc['orange'][8], '')
+    call s:Hi('Boolean', s:oc['orange'][8], '')
+    call s:Hi('Float', s:oc['orange'][8], '')
 
     " Identifier
     call s:Hi('Identifier', s:oc['yellow'][7], '')
-    highlight Identifier gui=bold
+    highlight Identifier cterm=bold gui=bold
 
     " Statement
     call s:Hi('Statement', s:oc['violet'][6], '')
@@ -320,7 +320,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " Press ENTER or type command to continue
     call s:Hi('Question', s:oc['lime'][8], '')
     " Search hit bottom
-    call s:Hi('WarningMsg', s:oc['red'][5], '')
+    call s:Hi('WarningMsg', s:oc['red'][7], '')
 
     " let &showbreak = '> '
     call s:Hi('NonText', s:oc['gray'][6], '')
@@ -331,7 +331,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('PmenuSbar', '', s:oc['gray'][4])
     call s:Hi('PmenuThumb', '', s:oc['gray'][8])
 
-    call s:Hi('Search', s:oc['gray'][9], s:oc['yellow'][2])
+    call s:Hi('Search', s:oc['gray'][9], s:oc['yellow'][3])
     " call s:Hi('IncSearch', '', '')
 
     " :map, listchars
@@ -356,7 +356,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " .each { |value| ... }
     call s:Hi('rubyBlockParameter', s:oc['yellow'][7], '')
     " ARGV, $stdout
-    call s:Hi('rubyPredefinedIdentifier', s:oc['red'][5], '')
+    call s:Hi('rubyPredefinedIdentifier', s:oc['red'][7], '')
 
     " vim-gitgutter
     call s:Hi('GitGutterAdd', s:oc['lime'][8], '')
