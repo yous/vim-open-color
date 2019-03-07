@@ -1,0 +1,31 @@
+language: minimal
+dist: xenial
+sudo: false
+addons:
+  apt:
+    packages:
+      - vim-gtk
+      - xvfb
+before_script:
+  - |
+    export DISPLAY=:99.0
+    /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x24
+  - mkdir -p dist
+  - vim --version
+script:
+  - gvim -T xterm-256color -E -n -u ci/init.vim -S ci/dark_gui.vim ci/vimcolors.rb >/dev/null
+  - gvim -T xterm-256color -E -n -u ci/init.vim -S ci/light_gui.vim ci/vimcolors.rb >/dev/null
+  - vim -T xterm-256color -E -n -u ci/init.vim -S ci/dark_256.vim ci/vimcolors.rb >/dev/null
+  - vim -T xterm-256color -E -n -u ci/init.vim -S ci/light_256.vim ci/vimcolors.rb >/dev/null
+branches:
+  only:
+    - master
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  local-dir: dist
+  target-branch: gh-pages
+  on:
+    branch: master
