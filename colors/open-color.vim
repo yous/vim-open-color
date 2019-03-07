@@ -225,6 +225,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][9])
 
     " syntax/ruby.vim
+    " .each { |value| ... }
+    call s:Hi('rubyBlockParameter', s:oc['yellow'][2], '')
     " ARGV, $stdout
     call s:Hi('rubyPredefinedIdentifier', s:oc['red'][5], '')
 
@@ -351,6 +353,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][1])
 
     " syntax/ruby.vim
+    " .each { |value| ... }
+    call s:Hi('rubyBlockParameter', s:oc['yellow'][7], '')
     " ARGV, $stdout
     call s:Hi('rubyPredefinedIdentifier', s:oc['red'][5], '')
 
