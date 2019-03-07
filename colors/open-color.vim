@@ -127,6 +127,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     " Identifier
     call s:Hi('Identifier', s:oc['yellow'][2], '')
+    highlight Identifier gui=bold
 
     " Statement
     call s:Hi('Statement', s:oc['violet'][2], '')
@@ -260,6 +261,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     " Identifier
     call s:Hi('Identifier', s:oc['yellow'][7], '')
+    highlight Identifier gui=bold
 
     " Statement
     call s:Hi('Statement', s:oc['violet'][6], '')
