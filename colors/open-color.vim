@@ -143,7 +143,6 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     " Special
     call s:Hi('Special', s:oc['yellow'][2], '')
-    call s:Hi('Delimiter', s:oc['gray'][2], '')
 
     " Underlined
     call s:Hi('Underlined', s:oc['cyan'][2], '')
@@ -226,12 +225,6 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][9])
 
     " syntax/ruby.vim
-    call s:Hi('rubyRegexp', s:oc['lime'][4], '')
-    call s:Hi('rubyRegexpDelimiter', s:oc['lime'][4], '')
-    call s:Hi('rubyArrayDelimiter', s:oc['gray'][2], '')
-    call s:Hi('rubyBlockParameterList', s:oc['gray'][2], '')
-    call s:Hi('rubyCurlyBlockDelimiter', s:oc['gray'][2], '')
-    call s:Hi('rubyInterpolationDelimiter', s:oc['orange'][4], '')
     " ARGV, $stdout
     call s:Hi('rubyPredefinedIdentifier', s:oc['red'][5], '')
 
@@ -277,7 +270,6 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     " Special
     call s:Hi('Special', s:oc['yellow'][7], '')
-    call s:Hi('Delimiter', s:oc['gray'][8], '')
 
     " Underlined
     call s:Hi('Underlined', s:oc['cyan'][5], '')
@@ -359,12 +351,6 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][1])
 
     " syntax/ruby.vim
-    call s:Hi('rubyRegexp', s:oc['lime'][8], '')
-    call s:Hi('rubyRegexpDelimiter', s:oc['lime'][8], '')
-    call s:Hi('rubyArrayDelimiter', s:oc['gray'][8], '')
-    call s:Hi('rubyBlockParameterList', s:oc['gray'][8], '')
-    call s:Hi('rubyCurlyBlockDelimiter', s:oc['gray'][8], '')
-    call s:Hi('rubyInterpolationDelimiter', s:oc['orange'][6], '')
     " ARGV, $stdout
     call s:Hi('rubyPredefinedIdentifier', s:oc['red'][5], '')
 
