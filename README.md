@@ -1,9 +1,20 @@
 # open-color.vim
 
+[![Build Status](https://travis-ci.org/yous/vim-open-color.svg?branch=master)](https://travis-ci.org/yous/vim-open-color)
+
 Vim color scheme using [Open Color](https://yeun.github.io/open-color/).
 Conversion from original colors to 256 colors has done according to
 [CIEDE2000](https://en.wikipedia.org/wiki/Color_difference). See
 [the implementation](https://gist.github.com/yous/6907d5ee01c237b9849ab005a13cf621).
+
+## Demo
+
+The previews are generated based on the latest master branch.
+
+- [Dark GUI](https://yous.github.io/vim-open-color/dark_gui.html)
+- [Light GUI](https://yous.github.io/vim-open-color/light_gui.html)
+- [Dark 256 colors](https://yous.github.io/vim-open-color/dark_256.html)
+- [Light 256 colors](https://yous.github.io/vim-open-color/light_256.html)
 
 ## Screenshots
 
