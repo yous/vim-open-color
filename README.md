@@ -16,7 +16,7 @@ The previews are generated based on the latest master branch.
 - [Dark 256 colors](https://yous.github.io/vim-open-color/dark_256.html)
 - [Light 256 colors](https://yous.github.io/vim-open-color/light_256.html)
 
-## Screenshots
+## Screenshots (before v2.3.0)
 
 ### GUI
 
