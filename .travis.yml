@@ -13,8 +13,8 @@ before_script:
   - mkdir -p dist
   - vim --version
 script:
-  - gvim -T xterm-256color -E -n -u ci/init.vim -S ci/dark_gui.vim ci/vimcolors.rb >/dev/null && [ -e dist/dark_gui.html ]
-  - gvim -T xterm-256color -E -n -u ci/init.vim -S ci/light_gui.vim ci/vimcolors.rb >/dev/null && [ -e dist/light_gui.html ]
+  - gvim -T xterm-256color -E -n -u ci/init.vim -S ci/dark_gui.vim ci/vimcolors.rb >/dev/null && sleep 3 && [ -e dist/dark_gui.html ]
+  - gvim -T xterm-256color -E -n -u ci/init.vim -S ci/light_gui.vim ci/vimcolors.rb >/dev/null && sleep 3 && [ -e dist/light_gui.html ]
   - vim -T xterm-256color -E -n -u ci/init.vim -S ci/dark_256.vim ci/vimcolors.rb >/dev/null && [ -e dist/dark_256.html ]
   - vim -T xterm-256color -E -n -u ci/init.vim -S ci/light_256.vim ci/vimcolors.rb >/dev/null && [ -e dist/light_256.html ]
 branches:
