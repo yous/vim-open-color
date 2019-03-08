@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/build/yous/vim-open-color/scripts/vimcolors.rb.html</title>
+<meta name="Generator" content="Vim/7.4">
+<meta name="plugin-version" content="vim7.4_v2">
+<meta name="syntax" content="ruby">
+<meta name="settings" content="no_progress,number_lines,use_css,pre_wrap,no_foldcolumn,expand_tabs,line_ids,prevent_copy=">
+<meta name="colorscheme" content="open-color">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #343a40; background-color: #f1f3f5; }
+body { font-family: monospace; color: #343a40; background-color: #f1f3f5; }
+* { font-size: 1em; }
+.Number { color: #e8590c; }
+.Float { color: #e8590c; }
+.rubyBlockParameter { color: #f59f00; }
+.Statement { color: #7950f2; font-weight: bold; }
+.PreProc { color: #7950f2; }
+.Type { color: #22b8cf; font-weight: bold; }
+.Todo { color: #212529; background-color: #a9e34b; padding-bottom: 1px; }
+.String { color: #66a80f; }
+.LineNr { color: #868e96; }
+.Comment { color: #868e96; }
+.Constant { color: #e64980; }
+.Special { color: #f59f00; }
+.Identifier { color: #f59f00; font-weight: bold; }
+.Boolean { color: #e8590c; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<pre id='vimCodeElement'>
+<span id="L1" class="LineNr"> 1 </span><span class="PreProc">require</span> <span class="Special">'</span><span class="String">active_support</span><span class="Special">'</span>
+<span id="L2" class="LineNr"> 2 </span>
+<span id="L3" class="LineNr"> 3 </span><span class="PreProc">module</span> <span class="Type">VimColors</span>
+<span id="L4" class="LineNr"> 4 </span>  <span class="PreProc">class</span> <span class="Type">RubyExample</span>
+<span id="L5" class="LineNr"> 5 </span>    <span class="Type">CONSTANT</span> = <span class="Special">/</span><span class="Special">^</span><span class="Special">[</span><span class="String">0-9</span><span class="Special">]</span><span class="Special">+</span><span class="String"> regex awesomes</span><span class="Special">$</span><span class="Special">/</span>
+<span id="L6" class="LineNr"> 6 </span>
+<span id="L7" class="LineNr"> 7 </span>    <span class="Statement">attr_reader</span> <span class="Constant">:colorscheme</span>
+<span id="L8" class="LineNr"> 8 </span>
+<span id="L9" class="LineNr"> 9 </span>    <span class="Comment"># </span><span class="Todo">TODO</span><span class="Comment">: Bacon ipsum dolor sit amet</span>
+<span id="L10" class="LineNr">10 </span>    <span class="PreProc">def</span> <span class="Identifier">initialize</span>(attributes = {})
+<span id="L11" class="LineNr">11 </span>      <span class="Identifier">@colorscheme</span> = attributes[<span class="Constant">:colorscheme</span>]
+<span id="L12" class="LineNr">12 </span>    <span class="PreProc">end</span>
+<span id="L13" class="LineNr">13 </span>
+<span id="L14" class="LineNr">14 </span>    <span class="PreProc">def</span> <span class="Constant">self</span>.<span class="Identifier">examples</span>
+<span id="L15" class="LineNr">15 </span>      <span class="Comment"># </span><span class="Todo">TODO</span>
+<span id="L16" class="LineNr">16 </span>      <span class="Comment"># Bacon ipsum dolor sit amet</span>
+<span id="L17" class="LineNr">17 </span>      [<span class="Special">'</span><span class="String">string</span><span class="Special">'</span>, <span class="Constant">:symbol</span>, <span class="Boolean">true</span>, <span class="Boolean">false</span>, <span class="Constant">nil</span>, <span class="Float">99.9</span>, <span class="Number">1</span>..<span class="Number">2</span>].each <span class="Statement">do</span> |<span class="rubyBlockParameter">value</span>|
+<span id="L18" class="LineNr">18 </span>        puts <span class="Special">&quot;</span><span class="String">it appears that </span><span class="Special">#{</span>value.inspect<span class="Special">}</span><span class="String"> is a </span><span class="Special">#{</span>value.class<span class="Special">}</span><span class="Special">&quot;</span>
+<span id="L19" class="LineNr">19 </span>      <span class="Statement">end</span>
+<span id="L20" class="LineNr">20 </span>
+<span id="L21" class="LineNr">21 </span>      {<span class="Constant">:key1</span> =&gt; <span class="Constant">:value1</span>, <span class="Constant">key2</span>: <span class="Special">'</span><span class="String">value2</span><span class="Special">'</span>}.each <span class="Statement">do</span> |<span class="rubyBlockParameter">key</span>, <span class="rubyBlockParameter">value</span>|
+<span id="L22" class="LineNr">22 </span>        puts <span class="Special">&quot;</span><span class="String">the </span><span class="Special">#{</span>key.inspect<span class="Special">}</span><span class="String"> key has a value of </span><span class="Special">#{</span>value.inspect<span class="Special">}</span><span class="Special">&quot;</span>
+<span id="L23" class="LineNr">23 </span>      <span class="Statement">end</span>
+<span id="L24" class="LineNr">24 </span>
+<span id="L25" class="LineNr">25 </span>      <span class="Special">%w[</span><span class="String">One Two Three</span><span class="Special">]</span>.each { |<span class="rubyBlockParameter">number</span>| puts number }
+<span id="L26" class="LineNr">26 </span>    <span class="PreProc">end</span>
+<span id="L27" class="LineNr">27 </span>
+<span id="L28" class="LineNr">28 </span>    <span class="Statement">private</span>
+<span id="L29" class="LineNr">29 </span>
+<span id="L30" class="LineNr">30 </span>    <span class="PreProc">def</span> <span class="Identifier">heredoc_example</span>
+<span id="L31" class="LineNr">31 </span>      &lt;&lt;-<span class="Special">SQL</span>
+<span id="L32" class="LineNr">32 </span><span class="String">        SELECT *</span>
+<span id="L33" class="LineNr">33 </span><span class="String">        FROM colorschemes</span>
+<span id="L34" class="LineNr">34 </span><span class="String">        WHERE background = 'dark'</span>
+<span id="L35" class="LineNr">35 </span><span class="String">      </span><span class="Special">SQL</span>
+<span id="L36" class="LineNr">36 </span>    <span class="PreProc">end</span>
+<span id="L37" class="LineNr">37 </span>  <span class="PreProc">end</span>
+<span id="L38" class="LineNr">38 </span><span class="PreProc">end</span>
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->
