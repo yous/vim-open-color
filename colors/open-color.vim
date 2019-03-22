@@ -221,7 +221,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Title', s:oc['indigo'][3], '')
 
     " :set conceallevel=1
-    call s:Hi('Conceal', s:oc['gray'][6], s:oc['gray'][8])
+    call s:Hi('Conceal', s:oc['gray'][2], s:oc['gray'][8])
     call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][9])
 
     " syntax/ruby.vim
@@ -349,7 +349,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " :set all
     call s:Hi('Title', s:oc['indigo'][5], '')
 
-    call s:Hi('Conceal', s:oc['gray'][6], s:oc['gray'][3])
+    call s:Hi('Conceal', s:oc['gray'][8], s:oc['gray'][3])
     call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][1])
 
     " syntax/ruby.vim
