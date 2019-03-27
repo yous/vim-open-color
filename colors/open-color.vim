@@ -26,7 +26,7 @@ function! s:Hi(item, fg, bg, ...)
     let l:hi = printf('%s ctermfg=%s guifg=%s', l:hi, l:fg_256, l:fg_gui)
   endif
   if !empty(a:bg)
-    if type(a:fg) == type('')
+    if type(a:bg) == type('')
       let l:bg_gui = a:bg
       let l:bg_256 = a:bg
     else
