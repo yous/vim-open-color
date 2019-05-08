@@ -240,6 +240,36 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('GitGutterChange', s:oc['yellow'][2], '')
     call s:Hi('GitGutterDelete', s:oc['red'][5], '')
     call s:Hi('GitGutterChangeDelete', s:oc['yellow'][2], '')
+
+    " Terminal colors
+    if has('nvim')
+      let g:terminal_color_0 = s:oc['gray'][9][0]
+      let g:terminal_color_1 = s:oc['red'][5][0]
+      let g:terminal_color_2 = s:oc['lime'][4][0]
+      let g:terminal_color_3 = s:oc['yellow'][4][0]
+      let g:terminal_color_4 = s:oc['indigo'][4][0]
+      let g:terminal_color_5 = s:oc['violet'][3][0]
+      let g:terminal_color_6 = s:oc['cyan'][2][0]
+      let g:terminal_color_7 = s:oc['gray'][5][0]
+      let g:terminal_color_8 = s:oc['gray'][7][0]
+      let g:terminal_color_9 = s:oc['red'][3][0]
+      let g:terminal_color_10 = s:oc['lime'][2][0]
+      let g:terminal_color_11 = s:oc['yellow'][2][0]
+      let g:terminal_color_12 = s:oc['indigo'][2][0]
+      let g:terminal_color_13 = s:oc['violet'][1][0]
+      let g:terminal_color_14 = s:oc['cyan'][1][0]
+      let g:terminal_color_15 = s:oc['gray'][2][0]
+    else
+      let g:terminal_ansi_colors = [
+            \ s:oc['gray'][9][0], s:oc['red'][5][0],
+            \ s:oc['lime'][4][0], s:oc['yellow'][4][0],
+            \ s:oc['indigo'][4][0], s:oc['violet'][3][0],
+            \ s:oc['cyan'][2][0], s:oc['gray'][5][0],
+            \ s:oc['gray'][7][0], s:oc['red'][3][0],
+            \ s:oc['lime'][2][0], s:oc['yellow'][2][0],
+            \ s:oc['indigo'][2][0], s:oc['violet'][1][0],
+            \ s:oc['cyan'][1][0], s:oc['gray'][2][0]]
+    endif
   else
     " :help group-name
     " :help highlight-groups
@@ -363,6 +393,36 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('GitGutterChange', s:oc['yellow'][7], '')
     call s:Hi('GitGutterDelete', s:oc['red'][7], '')
     call s:Hi('GitGutterChangeDelete', s:oc['yellow'][7], '')
+
+    " Terminal colors
+    if has('nvim')
+      let g:terminal_color_0 = s:oc['gray'][9][0]
+      let g:terminal_color_1 = s:oc['red'][7][0]
+      let g:terminal_color_2 = s:oc['lime'][8][0]
+      let g:terminal_color_3 = s:oc['yellow'][7][0]
+      let g:terminal_color_4 = s:oc['indigo'][5][0]
+      let g:terminal_color_5 = s:oc['violet'][6][0]
+      let g:terminal_color_6 = s:oc['cyan'][4][0]
+      let g:terminal_color_7 = s:oc['gray'][5][0]
+      let g:terminal_color_8 = s:oc['gray'][7][0]
+      let g:terminal_color_9 = s:oc['red'][5][0]
+      let g:terminal_color_10 = s:oc['lime'][5][0]
+      let g:terminal_color_11 = s:oc['yellow'][5][0]
+      let g:terminal_color_12 = s:oc['indigo'][3][0]
+      let g:terminal_color_13 = s:oc['violet'][3][0]
+      let g:terminal_color_14 = s:oc['cyan'][2][0]
+      let g:terminal_color_15 = s:oc['gray'][2][0]
+    else
+      let g:terminal_ansi_colors = [
+            \ s:oc['gray'][9][0], s:oc['red'][7][0],
+            \ s:oc['lime'][8][0], s:oc['yellow'][7][0],
+            \ s:oc['indigo'][5][0], s:oc['violet'][6][0],
+            \ s:oc['cyan'][4][0], s:oc['gray'][5][0],
+            \ s:oc['gray'][7][0], s:oc['red'][5][0],
+            \ s:oc['lime'][5][0], s:oc['yellow'][5][0],
+            \ s:oc['indigo'][3][0], s:oc['violet'][3][0],
+            \ s:oc['cyan'][2][0], s:oc['gray'][2][0]]
+    endif
   endif
 endif
 
