@@ -1,4 +1,4 @@
-language: minimal
+language: python
 dist: xenial
 sudo: false
 python: 3.7
