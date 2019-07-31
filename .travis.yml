@@ -1,6 +1,7 @@
 language: minimal
 dist: xenial
 sudo: false
+python: 3.7
 addons:
   apt:
     packages:
