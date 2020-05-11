@@ -187,6 +187,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Folded', s:oc['gray'][6], s:oc['gray'][9])
     " set foldcolumn=1
     call s:Hi('FoldColumn', s:oc['gray'][6], s:oc['gray'][9])
+    " :help signs
+    call s:Hi('SignColumn', s:oc['gray'][8], 'NONE')
     call s:Hi('MatchParen', '', s:oc['gray'][6])
 
     " :help error-messages
@@ -341,6 +343,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Folded', s:oc['gray'][6], s:oc['gray'][1])
     " set foldcolumn=1
     call s:Hi('FoldColumn', s:oc['gray'][6], s:oc['gray'][1])
+    " :help signs
+    call s:Hi('SignColumn', s:oc['gray'][2], 'NONE')
     call s:Hi('MatchParen', '', s:oc['gray'][3])
 
     " :help error-messages
