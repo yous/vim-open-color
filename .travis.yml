@@ -1,6 +1,5 @@
 language: python
 dist: xenial
-sudo: false
 python: 3.8
 addons:
   apt:
@@ -26,10 +25,10 @@ branches:
     - master
 deploy:
   provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  keep-history: true
-  local-dir: dist
-  target-branch: gh-pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  local_dir: dist
+  target_branch: gh-pages
   on:
     branch: master
