@@ -160,7 +160,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Error', s:oc['gray'][2], s:oc['red'][7])
 
     " Todo
-    call s:Hi('Todo', s:oc['gray'][9], s:oc['lime'][4])
+    call s:Hi('Todo', s:oc['gray'][2], s:oc['lime'][9])
 
     " set textwidth=80 colorcolumn+=1
     call s:Hi('ColorColumn', '', s:oc['gray'][8])
