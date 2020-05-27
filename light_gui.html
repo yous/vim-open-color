@@ -15,7 +15,6 @@ body { font-family: monospace; color: #343a40; background-color: #f1f3f5; }
 * { font-size: 1em; }
 .Number { color: #e8590c; }
 .Float { color: #e8590c; }
-.rubyBlockParameter { color: #f59f00; }
 .Statement { color: #7950f2; font-weight: bold; }
 .PreProc { color: #7950f2; }
 .Type { color: #22b8cf; font-weight: bold; }
@@ -77,15 +76,15 @@ if ('onhashchange' in window) {
 <span id="L14" class="LineNr">14 </span>    <span class="PreProc">def</span> <span class="Constant">self</span>.<span class="Identifier">examples</span>
 <span id="L15" class="LineNr">15 </span>      <span class="Comment"># </span><span class="Todo">TODO</span>
 <span id="L16" class="LineNr">16 </span>      <span class="Comment"># Bacon ipsum dolor sit amet</span>
-<span id="L17" class="LineNr">17 </span>      [<span class="Special">'</span><span class="String">string</span><span class="Special">'</span>, <span class="Constant">:symbol</span>, <span class="Boolean">true</span>, <span class="Boolean">false</span>, <span class="Constant">nil</span>, <span class="Float">99.9</span>, <span class="Number">1</span>..<span class="Number">2</span>].each <span class="Statement">do</span> |<span class="rubyBlockParameter">value</span>|
+<span id="L17" class="LineNr">17 </span>      [<span class="Special">'</span><span class="String">string</span><span class="Special">'</span>, <span class="Constant">:symbol</span>, <span class="Boolean">true</span>, <span class="Boolean">false</span>, <span class="Constant">nil</span>, <span class="Float">99.9</span>, <span class="Number">1</span>..<span class="Number">2</span>].each <span class="Statement">do</span> |<span class="Identifier">value</span>|
 <span id="L18" class="LineNr">18 </span>        puts <span class="Special">&quot;</span><span class="String">it appears that </span><span class="Special">#{</span>value.inspect<span class="Special">}</span><span class="String"> is a </span><span class="Special">#{</span>value.class<span class="Special">}</span><span class="Special">&quot;</span>
 <span id="L19" class="LineNr">19 </span>      <span class="Statement">end</span>
 <span id="L20" class="LineNr">20 </span>
-<span id="L21" class="LineNr">21 </span>      {<span class="Constant">:key1</span> =&gt; <span class="Constant">:value1</span>, <span class="Constant">key2</span>: <span class="Special">'</span><span class="String">value2</span><span class="Special">'</span>}.each <span class="Statement">do</span> |<span class="rubyBlockParameter">key</span>, <span class="rubyBlockParameter">value</span>|
+<span id="L21" class="LineNr">21 </span>      {<span class="Constant">:key1</span> =&gt; <span class="Constant">:value1</span>, <span class="Constant">key2</span>: <span class="Special">'</span><span class="String">value2</span><span class="Special">'</span>}.each <span class="Statement">do</span> |<span class="Identifier">key</span>, <span class="Identifier">value</span>|
 <span id="L22" class="LineNr">22 </span>        puts <span class="Special">&quot;</span><span class="String">the </span><span class="Special">#{</span>key.inspect<span class="Special">}</span><span class="String"> key has a value of </span><span class="Special">#{</span>value.inspect<span class="Special">}</span><span class="Special">&quot;</span>
 <span id="L23" class="LineNr">23 </span>      <span class="Statement">end</span>
 <span id="L24" class="LineNr">24 </span>
-<span id="L25" class="LineNr">25 </span>      <span class="Special">%w[</span><span class="String">One Two Three</span><span class="Special">]</span>.each { |<span class="rubyBlockParameter">number</span>| puts number }
+<span id="L25" class="LineNr">25 </span>      <span class="Special">%w[</span><span class="String">One Two Three</span><span class="Special">]</span>.each { |<span class="Identifier">number</span>| puts number }
 <span id="L26" class="LineNr">26 </span>    <span class="PreProc">end</span>
 <span id="L27" class="LineNr">27 </span>
 <span id="L28" class="LineNr">28 </span>    <span class="Statement">private</span>
