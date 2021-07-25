@@ -16,13 +16,17 @@ jobs:
           python -m pip install -U pip
           pip install vim-vint
       - run: vint colors/
+      - name: Run Xvfb
+        run: |
+          export DISPLAY=:99.0
+          Xvfb :99 -ac -screen 0 1280x1024x24 >/dev/null 2>&1 &
       - name: Generate previews
         run: |
           mkdir -p dist
-          xvfb-run --auto-servernum ci/generate.sh dark_gui
-          xvfb-run --auto-servernum ci/generate.sh light_gui
-          xvfb-run --auto-servernum ci/generate.sh dark_256
-          xvfb-run --auto-servernum ci/generate.sh light_256
+          ci/generate.sh dark_gui
+          ci/generate.sh light_gui
+          ci/generate.sh dark_256
+          ci/generate.sh light_256
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
