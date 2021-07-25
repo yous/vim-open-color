@@ -16,7 +16,8 @@ jobs:
           python -m pip install -U pip
           pip install vim-vint
       - run: vint colors/
-      - run: |
+      - name: Generate previews
+        run: |
           mkdir -p dist
           xvfb-run --auto-servernum ci/generate.sh dark_gui
           xvfb-run --auto-servernum ci/generate.sh light_gui
