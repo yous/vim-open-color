@@ -1,6 +1,6 @@
 # open-color.vim
 
-[![Build Status](https://travis-ci.org/yous/vim-open-color.svg?branch=master)](https://travis-ci.org/yous/vim-open-color)
+[![CircleCI](https://circleci.com/gh/yous/vim-open-color/tree/master.svg?style=shield)](https://circleci.com/gh/yous/vim-open-color/tree/master)
 
 Vim color scheme using [Open Color](https://yeun.github.io/open-color/).
 Conversion from original colors to 256 colors has done according to
