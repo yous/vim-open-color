@@ -1,0 +1,71 @@
+version: 2.1
+
+jobs:
+  build:
+    machine:
+      image: ubuntu-2004:202104-01
+    steps:
+      - checkout
+      - run: sudo apt-get update && sudo apt-get install -y python3.9 vim-gtk3
+      - restore_cache:
+          keys:
+            - pypi-3.9
+      - run: python3.9 -m pip install --user -U vim-vint
+      - save_cache:
+          key: pypi-3.9
+          paths:
+            - /home/circleci/.cache/pip
+            - /home/circleci/.local/lib/
+      - run:
+          name: Generate previews
+          command: |
+            mkdir -p dist
+            ci/generate.sh gvim dark_gui
+            ci/generate.sh gvim light_gui
+            ci/generate.sh vim dark_256
+            ci/generate.sh vim light_256
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist
+  deploy:
+    docker:
+      - image: cimg/node:16.5
+        environment:
+          NPM_CONFIG_PREFIX: "~/.npm-global"
+    steps:
+      - checkout
+      - run: echo 'export PATH=~/.npm-global/bin:$PATH' >> $BASH_ENV
+      - restore_cache:
+          keys:
+            - npm-{{ arch }}
+      - run: npm install -g gh-pages
+      - save_cache:
+          key: npm-{{ arch }}
+          paths:
+            - ~/.npm
+            - ~/.npm-global
+      - attach_workspace:
+          at: .
+      - run: |
+          git config user.name "$(git --no-pager show --no-patch --format='%an')"
+          git config user.email "$(git --no-pager show --no-patch --format='%ae')"
+      - add_ssh_keys:
+          fingerprints:
+            - "f0:39:46:63:c2:e9:10:f3:5e:d0:f2:61:56:41:4c:bb"
+      - run:
+          command: gh-pages --branch gh-pages --dist dist --message "Update to ${CIRCLE_SHA1:0:7} [ci skip]"
+          environment:
+            CACHE_DIR: "~/.npm-global/.cache"
+
+workflows:
+  version: 2
+  ci:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
