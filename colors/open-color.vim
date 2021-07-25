@@ -241,6 +241,11 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('GitGutterDelete', s:oc['red'][5], '')
     call s:Hi('GitGutterChangeDelete', s:oc['yellow'][2], '')
 
+    " vim-signify
+    call s:Hi('SignifySignAdd', s:oc['lime'][4], '')
+    call s:Hi('SignifySignChange', s:oc['yellow'][2], '')
+    call s:Hi('SignifySignDelete', s:oc['red'][5], '')
+
     " Terminal colors
     if has('nvim')
       let g:terminal_color_0 = s:oc['gray'][9][0]
@@ -393,6 +398,11 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('GitGutterChange', s:oc['yellow'][7], '')
     call s:Hi('GitGutterDelete', s:oc['red'][7], '')
     call s:Hi('GitGutterChangeDelete', s:oc['yellow'][7], '')
+
+    " vim-signify
+    call s:Hi('SignifySignAdd', s:oc['lime'][8], '')
+    call s:Hi('SignifySignChange', s:oc['yellow'][7], '')
+    call s:Hi('SignifySignDelete', s:oc['red'][7], '')
 
     " Terminal colors
     if has('nvim')
