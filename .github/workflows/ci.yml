@@ -5,6 +5,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      TERM: xterm-256color
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -16,7 +18,7 @@ jobs:
           python -m pip install -U pip
           pip install vim-vint
       - run: vint colors/
-      - run: xvfb-run -a gvim -f --version
+      - run: echo "::set-output name=vim-version::$(xvfb-run -a gvim -f --version)\n"
       - name: Generate previews
         run: |
           mkdir -p dist
