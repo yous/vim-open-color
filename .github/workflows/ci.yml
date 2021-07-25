@@ -1,0 +1,29 @@
+name: CI
+on:
+  push:
+    branches: [master]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - run: sudo apt-get install -y vim-gtk xvfb
+      - name: Install dependencies
+        run: |
+          python -m pip install -U pip
+          pip install vim-vint
+      - run: vint colors/
+      - run: |
+          mkdir -p dist
+          xvfb-run --auto-servernum ci/generate.sh dark_gui
+          xvfb-run --auto-servernum ci/generate.sh light_gui
+          xvfb-run --auto-servernum ci/generate.sh dark_256
+          xvfb-run --auto-servernum ci/generate.sh light_256
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1
+        with:
+          branch: gh-pages
+          folder: dist
