@@ -18,7 +18,6 @@ jobs:
       - run: vint colors/
       - name: Generate previews
         run: |
-          tput colors
           ls -lAh /usr/share/terminfo/x/xterm-*
           mkdir -p dist
           xvfb-run ci/generate.sh dark_gui
