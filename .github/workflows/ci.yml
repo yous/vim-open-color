@@ -23,7 +23,7 @@ jobs:
           xvfb-run --auto-servernum ci/generate.sh dark_256
           xvfb-run --auto-servernum ci/generate.sh light_256
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
           folder: dist
