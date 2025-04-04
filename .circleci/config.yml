@@ -1,21 +1,19 @@
 version: 2.1
 
 jobs:
-  build:
-    machine:
-      image: ubuntu-2004:202104-01
+  lint:
+    docker:
+      - image: cimg/python:3.13
     steps:
       - checkout
-      - run: sudo apt-get update && sudo apt-get install -y python3.9 vim-gtk3
-      - restore_cache:
-          keys:
-            - pypi-3.9
-      - run: python3.9 -m pip install --user -U vim-vint
-      - save_cache:
-          key: pypi-3.9
-          paths:
-            - /home/circleci/.cache/pip
-            - /home/circleci/.local/lib/
+      - run: pip install -U vim-vint
+      - run: vint colors/
+  build:
+    machine:
+      image: ubuntu-2404:current
+    steps:
+      - checkout
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends vim-gtk3
       - run:
           name: Generate previews
           command: |
@@ -24,13 +22,15 @@ jobs:
             ci/generate.sh gvim light_gui
             ci/generate.sh vim dark_256
             ci/generate.sh vim light_256
+      - store_artifacts:
+          path: dist
       - persist_to_workspace:
           root: .
           paths:
             - dist
   deploy:
     docker:
-      - image: cimg/node:16.5
+      - image: cimg/node:22.14
         environment:
           NPM_CONFIG_PREFIX: "~/.npm-global"
     steps:
@@ -52,7 +52,7 @@ jobs:
           git config user.email "$(git --no-pager show --no-patch --format='%ae')"
       - add_ssh_keys:
           fingerprints:
-            - "f0:39:46:63:c2:e9:10:f3:5e:d0:f2:61:56:41:4c:bb"
+            - "uQFw4yrd8TZKe6rsAFpqfc6wbNRLUk7C+2tb6jK8A4M"
       - run:
           command: gh-pages --branch gh-pages --dist dist --message "Update to ${CIRCLE_SHA1:0:7} [ci skip]"
           environment:
@@ -62,7 +62,10 @@ workflows:
   version: 2
   ci:
     jobs:
-      - build
+      - lint
+      - build:
+          requires:
+            - lint
       - deploy:
           requires:
             - build
