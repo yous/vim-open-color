@@ -149,7 +149,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('PreProc', s:oc['violet'][2], '')
 
     " Type
-    call s:Hi('Type', s:oc['cyan'][2], '')
+    call s:Hi('Type', s:oc['cyan'][2], '', 'cterm=NONE gui=NONE')
 
     " Special
     call s:Hi('Special', s:oc['yellow'][2], '')
@@ -310,7 +310,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('PreProc', s:oc['violet'][6], '')
 
     " Type
-    call s:Hi('Type', s:oc['cyan'][5], '')
+    call s:Hi('Type', s:oc['cyan'][5], '', 'cterm=NONE gui=NONE')
 
     " Special
     call s:Hi('Special', s:oc['yellow'][7], '')
