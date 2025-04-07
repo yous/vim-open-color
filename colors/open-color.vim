@@ -122,7 +122,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Normal', s:oc['gray'][2], s:oc['gray'][9])
     call s:Hi('LineNr', s:oc['gray'][6], '')
     call s:Hi('Visual', '', s:oc['gray'][8])
-    call s:Hi('VisualNOS', '', s:oc['gray'][8])
+    call s:Hi('VisualNOS', '', s:oc['gray'][8], 'cterm=NONE gui=NONE')
 
     " Comment
     call s:Hi('Comment', s:oc['gray'][6], '')
@@ -164,7 +164,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Todo', s:oc['gray'][2], s:oc['lime'][9])
 
     " set textwidth=80 colorcolumn+=1
-    call s:Hi('ColorColumn', '', s:oc['gray'][8])
+    call s:Hi('ColorColumn', '', s:oc['gray'][8], 'cterm=NONE gui=NONE')
 
     call s:Hi('Cursor', s:oc['gray'][9], s:oc['gray'][2])
 
@@ -191,7 +191,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('FoldColumn', s:oc['gray'][6], s:oc['gray'][9])
     " :help signs
     call s:Hi('SignColumn', s:oc['gray'][8], 'NONE')
-    call s:Hi('MatchParen', '', s:oc['gray'][6])
+    call s:Hi('MatchParen', '', s:oc['gray'][6], 'cterm=NONE gui=NONE')
 
     " :help error-messages
     call s:Hi('ErrorMsg', s:oc['gray'][2], s:oc['red'][7])
@@ -208,8 +208,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('NonText', s:oc['gray'][6], '')
 
     " Popup menu
-    call s:Hi('Pmenu', s:oc['gray'][2], s:oc['gray'][8])
-    call s:Hi('PmenuSel', s:oc['gray'][9], s:oc['gray'][2])
+    call s:Hi('Pmenu', s:oc['gray'][2], s:oc['gray'][8], 'cterm=NONE gui=NONE')
+    call s:Hi('PmenuSel', s:oc['gray'][2], s:oc['gray'][9], 'cterm=NONE gui=NONE')
     call s:Hi('PmenuSbar', '', s:oc['gray'][6])
     call s:Hi('PmenuThumb', '', s:oc['gray'][2])
 
@@ -283,7 +283,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Normal', s:oc['gray'][8], s:oc['gray'][1])
     call s:Hi('LineNr', s:oc['gray'][6], '')
     call s:Hi('Visual', '', s:oc['gray'][4])
-    call s:Hi('VisualNOS', '', s:oc['gray'][4])
+    call s:Hi('VisualNOS', '', s:oc['gray'][4], 'cterm=NONE gui=NONE')
 
     " Comment
     call s:Hi('Comment', s:oc['gray'][6], '')
@@ -325,7 +325,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Todo', s:oc['gray'][9], s:oc['lime'][4])
 
     " set textwidth=80 colorcolumn+=1
-    call s:Hi('ColorColumn', '', s:oc['gray'][0])
+    call s:Hi('ColorColumn', '', s:oc['gray'][0], 'cterm=NONE gui=NONE')
 
     call s:Hi('Cursor', s:oc['gray'][1], s:oc['gray'][5])
 
@@ -352,7 +352,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('FoldColumn', s:oc['gray'][6], s:oc['gray'][1])
     " :help signs
     call s:Hi('SignColumn', s:oc['gray'][2], 'NONE')
-    call s:Hi('MatchParen', '', s:oc['gray'][3])
+    call s:Hi('MatchParen', '', s:oc['gray'][3], 'cterm=NONE gui=NONE')
 
     " :help error-messages
     call s:Hi('ErrorMsg', s:oc['gray'][8], s:oc['red'][5])
@@ -369,8 +369,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('NonText', s:oc['gray'][6], '')
 
     " Popup menu
-    call s:Hi('Pmenu', s:oc['gray'][8], s:oc['gray'][3])
-    call s:Hi('PmenuSel', s:oc['gray'][2], s:oc['gray'][6])
+    call s:Hi('Pmenu', s:oc['gray'][8], s:oc['gray'][3], 'cterm=NONE gui=NONE')
+    call s:Hi('PmenuSel', s:oc['gray'][6], s:oc['gray'][2], 'cterm=NONE gui=NONE')
     call s:Hi('PmenuSbar', '', s:oc['gray'][4])
     call s:Hi('PmenuThumb', '', s:oc['gray'][8])
 
