@@ -380,8 +380,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " :map, listchars
     call s:Hi('SpecialKey', s:oc['gray'][6], '')
 
-    call s:Hi('StatusLine', s:oc['lime'][8], s:oc['gray'][4], 'cterm=NONE gui=NONE')
-    call s:Hi('StatusLineNC', s:oc['gray'][6], s:oc['gray'][4], 'cterm=NONE gui=NONE')
+    call s:Hi('StatusLine', s:oc['lime'][8], s:oc['gray'][3], 'cterm=NONE gui=NONE')
+    call s:Hi('StatusLineNC', s:oc['gray'][6], s:oc['gray'][3], 'cterm=NONE gui=NONE')
     call s:Hi('TabLineFill', '', s:oc['gray'][4], 'cterm=NONE gui=NONE')
     call s:Hi('TabLineSel', s:oc['gray'][1], s:oc['gray'][6], 'cterm=NONE gui=NONE')
     call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][2], 'cterm=NONE gui=NONE')
