@@ -136,10 +136,10 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Float', s:oc['orange'][4], '')
 
     " Identifier
-    call s:Hi('Identifier', s:oc['yellow'][2], '', 'gui=bold')
+    call s:Hi('Identifier', s:oc['yellow'][2], '', 'cterm=bold gui=bold')
 
     " Statement
-    call s:Hi('Statement', s:oc['violet'][2], '')
+    call s:Hi('Statement', s:oc['violet'][2], '', 'cterm=NONE gui=NONE')
     call s:Hi('Conditional', s:oc['indigo'][3], '')
     call s:Hi('Repeat', s:oc['indigo'][3], '')
     call s:Hi('Operator', s:oc['cyan'][2], '')
@@ -168,8 +168,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Cursor', s:oc['gray'][9], s:oc['gray'][2])
 
     " set cursorline
-    call s:Hi('CursorLine', '', s:oc['gray'][8], 'cterm=NONE')
-    call s:Hi('CursorLineNr', s:oc['yellow'][2], s:oc['gray'][8], 'cterm=NONE')
+    call s:Hi('CursorLine', '', s:oc['gray'][8], 'cterm=NONE gui=NONE')
+    call s:Hi('CursorLineNr', s:oc['yellow'][2], s:oc['gray'][8], 'cterm=bold gui=bold')
     " set cursorcolumn
     call s:Hi('CursorColumn', '', s:oc['gray'][8])
 
@@ -182,7 +182,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('diffAdded', s:oc['lime'][4], '')
     call s:Hi('diffRemoved', s:oc['red'][5], '')
 
-    call s:Hi('VertSplit', s:oc['gray'][8], s:oc['gray'][6])
+    call s:Hi('VertSplit', s:oc['gray'][6], s:oc['gray'][8], 'cterm=NONE gui=NONE')
 
     call s:Hi('Folded', s:oc['gray'][6], s:oc['gray'][9])
     " set foldcolumn=1
@@ -217,11 +217,11 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " :map, listchars
     call s:Hi('SpecialKey', s:oc['gray'][6], '')
 
-    call s:Hi('StatusLine', s:oc['gray'][8], s:oc['lime'][4])
-    call s:Hi('StatusLineNC', s:oc['gray'][8], s:oc['gray'][6])
-    call s:Hi('TabLineFill', s:oc['gray'][7], '')
-    call s:Hi('TabLineSel', s:oc['gray'][2], s:oc['gray'][6], 'cterm=NONE')
-    call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][8], 'cterm=NONE')
+    call s:Hi('StatusLine', s:oc['lime'][4], s:oc['gray'][8], 'cterm=NONE gui=NONE')
+    call s:Hi('StatusLineNC', s:oc['gray'][6], s:oc['gray'][8], 'cterm=NONE gui=NONE')
+    call s:Hi('TabLineFill', '', s:oc['gray'][7], 'cterm=NONE gui=NONE')
+    call s:Hi('TabLineSel', s:oc['gray'][2], s:oc['gray'][6], 'cterm=NONE gui=NONE')
+    call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][8], 'cterm=NONE gui=NONE')
     call s:Hi('WildMenu', s:oc['gray'][9], s:oc['lime'][4])
 
     " :set all
@@ -298,7 +298,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Identifier', s:oc['yellow'][7], '', 'cterm=bold gui=bold')
 
     " Statement
-    call s:Hi('Statement', s:oc['violet'][6], '')
+    call s:Hi('Statement', s:oc['violet'][6], '', 'cterm=NONE gui=NONE')
     call s:Hi('Conditional', s:oc['indigo'][5], '')
     call s:Hi('Repeat', s:oc['indigo'][5], '')
     call s:Hi('Operator', s:oc['cyan'][5], '')
@@ -327,8 +327,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Cursor', s:oc['gray'][1], s:oc['gray'][5])
 
     " set cursorline
-    call s:Hi('CursorLine', '', s:oc['gray'][0], 'cterm=NONE')
-    call s:Hi('CursorLineNr', s:oc['yellow'][7], s:oc['gray'][0], 'cterm=NONE')
+    call s:Hi('CursorLine', '', s:oc['gray'][0], 'cterm=NONE gui=NONE')
+    call s:Hi('CursorLineNr', s:oc['yellow'][7], s:oc['gray'][0], 'cterm=bold gui=bold')
     " set cursorcolumn
     call s:Hi('CursorColumn', '', s:oc['gray'][0])
 
@@ -341,7 +341,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('diffAdded', s:oc['lime'][8], '')
     call s:Hi('diffRemoved', s:oc['red'][5], '')
 
-    call s:Hi('VertSplit', s:oc['gray'][3], s:oc['gray'][6])
+    call s:Hi('VertSplit', s:oc['gray'][6], s:oc['gray'][3], 'cterm=NONE gui=NONE')
 
     call s:Hi('Folded', s:oc['gray'][6], s:oc['gray'][1])
     " set foldcolumn=1
@@ -376,16 +376,17 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " :map, listchars
     call s:Hi('SpecialKey', s:oc['gray'][6], '')
 
-    call s:Hi('StatusLine', s:oc['gray'][4], s:oc['lime'][8])
-    call s:Hi('StatusLineNC', s:oc['gray'][4], s:oc['gray'][6])
-    call s:Hi('TabLineFill', s:oc['gray'][4], '')
-    call s:Hi('TabLineSel', s:oc['gray'][1], s:oc['gray'][6], 'cterm=NONE')
-    call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][2], 'cterm=NONE')
+    call s:Hi('StatusLine', s:oc['lime'][8], s:oc['gray'][4], 'cterm=NONE gui=NONE')
+    call s:Hi('StatusLineNC', s:oc['gray'][6], s:oc['gray'][4], 'cterm=NONE gui=NONE')
+    call s:Hi('TabLineFill', '', s:oc['gray'][4], 'cterm=NONE gui=NONE')
+    call s:Hi('TabLineSel', s:oc['gray'][1], s:oc['gray'][6], 'cterm=NONE gui=NONE')
+    call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][2], 'cterm=NONE gui=NONE')
     call s:Hi('WildMenu', s:oc['gray'][1], s:oc['lime'][8])
 
     " :set all
     call s:Hi('Title', s:oc['indigo'][5], '')
 
+    " :set conceallevel=1
     call s:Hi('Conceal', s:oc['gray'][8], s:oc['gray'][3])
     call s:Hi('Ignore', s:oc['gray'][6], s:oc['gray'][1])
 
