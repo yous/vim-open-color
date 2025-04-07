@@ -137,6 +137,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     " Identifier
     call s:Hi('Identifier', s:oc['yellow'][2], '', 'cterm=bold gui=bold')
+    call s:Hi('Function', s:oc['yellow'][2], '', 'cterm=bold gui=bold')
 
     " Statement
     call s:Hi('Statement', s:oc['violet'][2], '', 'cterm=NONE gui=NONE')
@@ -183,6 +184,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('diffRemoved', s:oc['red'][5], '')
 
     call s:Hi('VertSplit', s:oc['gray'][6], s:oc['gray'][8], 'cterm=NONE gui=NONE')
+    call s:Hi('WinSeparator', s:oc['gray'][6], s:oc['gray'][9])
 
     call s:Hi('Folded', s:oc['gray'][6], s:oc['gray'][9])
     " set foldcolumn=1
@@ -296,6 +298,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     " Identifier
     call s:Hi('Identifier', s:oc['yellow'][7], '', 'cterm=bold gui=bold')
+    call s:Hi('Function', s:oc['yellow'][7], '', 'cterm=bold gui=bold')
 
     " Statement
     call s:Hi('Statement', s:oc['violet'][6], '', 'cterm=NONE gui=NONE')
@@ -342,6 +345,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('diffRemoved', s:oc['red'][5], '')
 
     call s:Hi('VertSplit', s:oc['gray'][6], s:oc['gray'][3], 'cterm=NONE gui=NONE')
+    call s:Hi('WinSeparator', s:oc['gray'][6], s:oc['gray'][1])
 
     call s:Hi('Folded', s:oc['gray'][6], s:oc['gray'][1])
     " set foldcolumn=1
