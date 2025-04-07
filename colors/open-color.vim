@@ -209,7 +209,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     " Popup menu
     call s:Hi('Pmenu', s:oc['gray'][2], s:oc['gray'][8], 'cterm=NONE gui=NONE')
-    call s:Hi('PmenuSel', s:oc['gray'][2], s:oc['gray'][9], 'cterm=NONE gui=NONE')
+    call s:Hi('PmenuSel', s:oc['gray'][2], s:oc['gray'][6], 'cterm=NONE gui=NONE')
     call s:Hi('PmenuSbar', '', s:oc['gray'][6])
     call s:Hi('PmenuThumb', '', s:oc['gray'][2])
 
@@ -370,7 +370,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     " Popup menu
     call s:Hi('Pmenu', s:oc['gray'][8], s:oc['gray'][3], 'cterm=NONE gui=NONE')
-    call s:Hi('PmenuSel', s:oc['gray'][6], s:oc['gray'][2], 'cterm=NONE gui=NONE')
+    call s:Hi('PmenuSel', s:oc['gray'][8], s:oc['gray'][4], 'cterm=NONE gui=NONE')
     call s:Hi('PmenuSbar', '', s:oc['gray'][4])
     call s:Hi('PmenuThumb', '', s:oc['gray'][8])
 
