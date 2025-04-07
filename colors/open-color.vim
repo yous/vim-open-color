@@ -120,6 +120,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " :help group-name
     " :help highlight-groups
     call s:Hi('Normal', s:oc['gray'][2], s:oc['gray'][9])
+    call s:Hi('NormalFloat', s:oc['gray'][2], s:oc['gray'][8])
     call s:Hi('LineNr', s:oc['gray'][6], '')
     call s:Hi('Visual', '', s:oc['gray'][8])
     call s:Hi('VisualNOS', '', s:oc['gray'][8], 'cterm=NONE gui=NONE')
@@ -213,6 +214,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('PmenuSbar', '', s:oc['gray'][6])
     call s:Hi('PmenuThumb', '', s:oc['gray'][2])
 
+    call s:Hi('QuickFixLine', s:oc['gray'][9], s:oc['yellow'][2])
     call s:Hi('Search', s:oc['gray'][9], s:oc['yellow'][2])
     " call s:Hi('IncSearch', '', '')
 
@@ -281,6 +283,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " :help group-name
     " :help highlight-groups
     call s:Hi('Normal', s:oc['gray'][8], s:oc['gray'][1])
+    call s:Hi('NormalFloat', s:oc['gray'][8], s:oc['gray'][3])
     call s:Hi('LineNr', s:oc['gray'][6], '')
     call s:Hi('Visual', '', s:oc['gray'][4])
     call s:Hi('VisualNOS', '', s:oc['gray'][4], 'cterm=NONE gui=NONE')
@@ -374,6 +377,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('PmenuSbar', '', s:oc['gray'][4])
     call s:Hi('PmenuThumb', '', s:oc['gray'][8])
 
+    call s:Hi('QuickFixLine', s:oc['gray'][9], s:oc['yellow'][3])
     call s:Hi('Search', s:oc['gray'][9], s:oc['yellow'][3])
     " call s:Hi('IncSearch', '', '')
 
