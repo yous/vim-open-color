@@ -36,7 +36,7 @@ function! s:Hi(item, fg, bg, ...)
     let l:hi = printf('%s ctermbg=%s guibg=%s', l:hi, l:bg_256, l:bg_gui)
   endif
   if a:0 > 0
-    let l:hi .= ' ' . a:1
+    let l:hi .= printf(' cterm=%s gui=%s', a:1, a:1)
   endif
   execute l:hi
 endfunction
@@ -123,7 +123,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('NormalFloat', s:oc['gray'][2], s:oc['gray'][8])
     call s:Hi('LineNr', s:oc['gray'][6], '')
     call s:Hi('Visual', '', s:oc['gray'][8])
-    call s:Hi('VisualNOS', '', s:oc['gray'][8], 'cterm=NONE gui=NONE')
+    call s:Hi('VisualNOS', '', s:oc['gray'][8], 'NONE')
 
     " Comment
     call s:Hi('Comment', s:oc['gray'][6], '')
@@ -137,11 +137,11 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Float', s:oc['orange'][4], '')
 
     " Identifier
-    call s:Hi('Identifier', s:oc['yellow'][2], '', 'cterm=bold gui=bold')
-    call s:Hi('Function', s:oc['yellow'][2], '', 'cterm=bold gui=bold')
+    call s:Hi('Identifier', s:oc['yellow'][2], '', 'bold')
+    call s:Hi('Function', s:oc['yellow'][2], '', 'bold')
 
     " Statement
-    call s:Hi('Statement', s:oc['violet'][2], '', 'cterm=NONE gui=NONE')
+    call s:Hi('Statement', s:oc['violet'][2], '', 'NONE')
     call s:Hi('Conditional', s:oc['indigo'][3], '')
     call s:Hi('Repeat', s:oc['indigo'][3], '')
     call s:Hi('Operator', s:oc['cyan'][2], '')
@@ -150,7 +150,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('PreProc', s:oc['violet'][2], '')
 
     " Type
-    call s:Hi('Type', s:oc['cyan'][2], '', 'cterm=NONE gui=NONE')
+    call s:Hi('Type', s:oc['cyan'][2], '', 'NONE')
 
     " Special
     call s:Hi('Special', s:oc['yellow'][2], '')
@@ -165,13 +165,13 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Todo', s:oc['gray'][2], s:oc['lime'][9])
 
     " set textwidth=80 colorcolumn+=1
-    call s:Hi('ColorColumn', '', s:oc['gray'][8], 'cterm=NONE gui=NONE')
+    call s:Hi('ColorColumn', '', s:oc['gray'][8], 'NONE')
 
     call s:Hi('Cursor', s:oc['gray'][9], s:oc['gray'][2])
 
     " set cursorline
-    call s:Hi('CursorLine', '', s:oc['gray'][8], 'cterm=NONE gui=NONE')
-    call s:Hi('CursorLineNr', s:oc['yellow'][2], s:oc['gray'][8], 'cterm=bold gui=bold')
+    call s:Hi('CursorLine', '', s:oc['gray'][8], 'NONE')
+    call s:Hi('CursorLineNr', s:oc['yellow'][2], s:oc['gray'][8], 'bold')
     " set cursorcolumn
     call s:Hi('CursorColumn', '', s:oc['gray'][8])
 
@@ -184,7 +184,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('diffAdded', s:oc['lime'][4], '')
     call s:Hi('diffRemoved', s:oc['red'][5], '')
 
-    call s:Hi('VertSplit', s:oc['gray'][6], s:oc['gray'][8], 'cterm=NONE gui=NONE')
+    call s:Hi('VertSplit', s:oc['gray'][6], s:oc['gray'][8], 'NONE')
     call s:Hi('WinSeparator', s:oc['gray'][6], s:oc['gray'][9])
 
     call s:Hi('Folded', s:oc['gray'][6], s:oc['gray'][9])
@@ -192,7 +192,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('FoldColumn', s:oc['gray'][6], s:oc['gray'][9])
     " :help signs
     call s:Hi('SignColumn', s:oc['gray'][8], 'NONE')
-    call s:Hi('MatchParen', '', s:oc['gray'][6], 'cterm=NONE gui=NONE')
+    call s:Hi('MatchParen', '', s:oc['gray'][6], 'NONE')
 
     " :help error-messages
     call s:Hi('ErrorMsg', s:oc['gray'][2], s:oc['red'][7])
@@ -209,8 +209,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('NonText', s:oc['gray'][6], '')
 
     " Popup menu
-    call s:Hi('Pmenu', s:oc['gray'][2], s:oc['gray'][8], 'cterm=NONE gui=NONE')
-    call s:Hi('PmenuSel', s:oc['gray'][2], s:oc['gray'][6], 'cterm=NONE gui=NONE')
+    call s:Hi('Pmenu', s:oc['gray'][2], s:oc['gray'][8], 'NONE')
+    call s:Hi('PmenuSel', s:oc['gray'][2], s:oc['gray'][6], 'NONE')
     call s:Hi('PmenuSbar', '', s:oc['gray'][6])
     call s:Hi('PmenuThumb', '', s:oc['gray'][2])
 
@@ -221,11 +221,11 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " :map, listchars
     call s:Hi('SpecialKey', s:oc['gray'][6], '')
 
-    call s:Hi('StatusLine', s:oc['lime'][4], s:oc['gray'][8], 'cterm=NONE gui=NONE')
-    call s:Hi('StatusLineNC', s:oc['gray'][6], s:oc['gray'][8], 'cterm=NONE gui=NONE')
-    call s:Hi('TabLineFill', '', s:oc['gray'][7], 'cterm=NONE gui=NONE')
-    call s:Hi('TabLineSel', s:oc['gray'][2], s:oc['gray'][6], 'cterm=NONE gui=NONE')
-    call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][8], 'cterm=NONE gui=NONE')
+    call s:Hi('StatusLine', s:oc['lime'][4], s:oc['gray'][8], 'NONE')
+    call s:Hi('StatusLineNC', s:oc['gray'][6], s:oc['gray'][8], 'NONE')
+    call s:Hi('TabLineFill', '', s:oc['gray'][7], 'NONE')
+    call s:Hi('TabLineSel', s:oc['gray'][2], s:oc['gray'][6], 'NONE')
+    call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][8], 'NONE')
     call s:Hi('WildMenu', s:oc['gray'][9], s:oc['lime'][4])
 
     " :set all
@@ -286,7 +286,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('NormalFloat', s:oc['gray'][8], s:oc['gray'][3])
     call s:Hi('LineNr', s:oc['gray'][6], '')
     call s:Hi('Visual', '', s:oc['gray'][4])
-    call s:Hi('VisualNOS', '', s:oc['gray'][4], 'cterm=NONE gui=NONE')
+    call s:Hi('VisualNOS', '', s:oc['gray'][4], 'NONE')
 
     " Comment
     call s:Hi('Comment', s:oc['gray'][6], '')
@@ -300,11 +300,11 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Float', s:oc['orange'][8], '')
 
     " Identifier
-    call s:Hi('Identifier', s:oc['yellow'][7], '', 'cterm=bold gui=bold')
-    call s:Hi('Function', s:oc['yellow'][7], '', 'cterm=bold gui=bold')
+    call s:Hi('Identifier', s:oc['yellow'][7], '', 'bold')
+    call s:Hi('Function', s:oc['yellow'][7], '', 'bold')
 
     " Statement
-    call s:Hi('Statement', s:oc['violet'][6], '', 'cterm=NONE gui=NONE')
+    call s:Hi('Statement', s:oc['violet'][6], '', 'NONE')
     call s:Hi('Conditional', s:oc['indigo'][5], '')
     call s:Hi('Repeat', s:oc['indigo'][5], '')
     call s:Hi('Operator', s:oc['cyan'][5], '')
@@ -313,7 +313,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('PreProc', s:oc['violet'][6], '')
 
     " Type
-    call s:Hi('Type', s:oc['cyan'][5], '', 'cterm=NONE gui=NONE')
+    call s:Hi('Type', s:oc['cyan'][5], '', 'NONE')
 
     " Special
     call s:Hi('Special', s:oc['yellow'][7], '')
@@ -328,13 +328,13 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('Todo', s:oc['gray'][9], s:oc['lime'][4])
 
     " set textwidth=80 colorcolumn+=1
-    call s:Hi('ColorColumn', '', s:oc['gray'][0], 'cterm=NONE gui=NONE')
+    call s:Hi('ColorColumn', '', s:oc['gray'][0], 'NONE')
 
     call s:Hi('Cursor', s:oc['gray'][1], s:oc['gray'][5])
 
     " set cursorline
-    call s:Hi('CursorLine', '', s:oc['gray'][0], 'cterm=NONE gui=NONE')
-    call s:Hi('CursorLineNr', s:oc['yellow'][7], s:oc['gray'][0], 'cterm=bold gui=bold')
+    call s:Hi('CursorLine', '', s:oc['gray'][0], 'NONE')
+    call s:Hi('CursorLineNr', s:oc['yellow'][7], s:oc['gray'][0], 'bold')
     " set cursorcolumn
     call s:Hi('CursorColumn', '', s:oc['gray'][0])
 
@@ -347,7 +347,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('diffAdded', s:oc['lime'][8], '')
     call s:Hi('diffRemoved', s:oc['red'][5], '')
 
-    call s:Hi('VertSplit', s:oc['gray'][6], s:oc['gray'][3], 'cterm=NONE gui=NONE')
+    call s:Hi('VertSplit', s:oc['gray'][6], s:oc['gray'][3], 'NONE')
     call s:Hi('WinSeparator', s:oc['gray'][6], s:oc['gray'][1])
 
     call s:Hi('Folded', s:oc['gray'][6], s:oc['gray'][1])
@@ -355,7 +355,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('FoldColumn', s:oc['gray'][6], s:oc['gray'][1])
     " :help signs
     call s:Hi('SignColumn', s:oc['gray'][2], 'NONE')
-    call s:Hi('MatchParen', '', s:oc['gray'][3], 'cterm=NONE gui=NONE')
+    call s:Hi('MatchParen', '', s:oc['gray'][3], 'NONE')
 
     " :help error-messages
     call s:Hi('ErrorMsg', s:oc['gray'][8], s:oc['red'][5])
@@ -372,8 +372,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('NonText', s:oc['gray'][6], '')
 
     " Popup menu
-    call s:Hi('Pmenu', s:oc['gray'][8], s:oc['gray'][3], 'cterm=NONE gui=NONE')
-    call s:Hi('PmenuSel', s:oc['gray'][8], s:oc['gray'][4], 'cterm=NONE gui=NONE')
+    call s:Hi('Pmenu', s:oc['gray'][8], s:oc['gray'][3], 'NONE')
+    call s:Hi('PmenuSel', s:oc['gray'][8], s:oc['gray'][4], 'NONE')
     call s:Hi('PmenuSbar', '', s:oc['gray'][4])
     call s:Hi('PmenuThumb', '', s:oc['gray'][8])
 
@@ -384,11 +384,11 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " :map, listchars
     call s:Hi('SpecialKey', s:oc['gray'][6], '')
 
-    call s:Hi('StatusLine', s:oc['lime'][8], s:oc['gray'][3], 'cterm=NONE gui=NONE')
-    call s:Hi('StatusLineNC', s:oc['gray'][6], s:oc['gray'][3], 'cterm=NONE gui=NONE')
-    call s:Hi('TabLineFill', '', s:oc['gray'][4], 'cterm=NONE gui=NONE')
-    call s:Hi('TabLineSel', s:oc['gray'][1], s:oc['gray'][6], 'cterm=NONE gui=NONE')
-    call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][2], 'cterm=NONE gui=NONE')
+    call s:Hi('StatusLine', s:oc['lime'][8], s:oc['gray'][3], 'NONE')
+    call s:Hi('StatusLineNC', s:oc['gray'][6], s:oc['gray'][3], 'NONE')
+    call s:Hi('TabLineFill', '', s:oc['gray'][4], 'NONE')
+    call s:Hi('TabLineSel', s:oc['gray'][1], s:oc['gray'][6], 'NONE')
+    call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][2], 'NONE')
     call s:Hi('WildMenu', s:oc['gray'][1], s:oc['lime'][8])
 
     " :set all
