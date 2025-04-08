@@ -216,7 +216,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     call s:Hi('QuickFixLine', s:oc['gray'][9], s:oc['yellow'][2])
     call s:Hi('Search', s:oc['gray'][9], s:oc['yellow'][2])
-    " call s:Hi('IncSearch', '', '')
+    call s:Hi('CurSearch', 'NONE', 'NONE', 'reverse')
+    call s:Hi('IncSearch', 'NONE', 'NONE', 'reverse')
 
     " :map, listchars
     call s:Hi('SpecialKey', s:oc['gray'][6], '')
@@ -379,7 +380,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     call s:Hi('QuickFixLine', s:oc['gray'][9], s:oc['yellow'][3])
     call s:Hi('Search', s:oc['gray'][9], s:oc['yellow'][3])
-    " call s:Hi('IncSearch', '', '')
+    call s:Hi('CurSearch', 'NONE', 'NONE', 'reverse')
+    call s:Hi('IncSearch', 'NONE', 'NONE', 'reverse')
 
     " :map, listchars
     call s:Hi('SpecialKey', s:oc['gray'][6], '')
