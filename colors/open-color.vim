@@ -224,7 +224,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     call s:Hi('StatusLine', s:oc['lime'][4], s:oc['gray'][8], 'NONE')
     call s:Hi('StatusLineNC', s:oc['gray'][6], s:oc['gray'][8], 'NONE')
-    call s:Hi('TabLineFill', '', s:oc['gray'][7], 'NONE')
+    call s:Hi('TabLineFill', '', s:oc['gray'][8], 'NONE')
     call s:Hi('TabLineSel', s:oc['gray'][2], s:oc['gray'][6], 'NONE')
     call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][8], 'NONE')
     call s:Hi('WildMenu', s:oc['gray'][9], s:oc['lime'][4])
@@ -388,8 +388,8 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     call s:Hi('StatusLine', s:oc['lime'][8], s:oc['gray'][3], 'NONE')
     call s:Hi('StatusLineNC', s:oc['gray'][6], s:oc['gray'][3], 'NONE')
-    call s:Hi('TabLineFill', '', s:oc['gray'][4], 'NONE')
-    call s:Hi('TabLineSel', s:oc['gray'][1], s:oc['gray'][6], 'NONE')
+    call s:Hi('TabLineFill', '', s:oc['gray'][2], 'NONE')
+    call s:Hi('TabLineSel', s:oc['gray'][8], s:oc['gray'][4], 'NONE')
     call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][2], 'NONE')
     call s:Hi('WildMenu', s:oc['gray'][1], s:oc['lime'][8])
 
