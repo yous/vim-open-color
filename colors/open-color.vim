@@ -229,6 +229,10 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][8], 'NONE')
     call s:Hi('WildMenu', s:oc['gray'][9], s:oc['lime'][4])
 
+    " winbar
+    call s:Hi('WinBar', s:oc['indigo'][3], s:oc['gray'][9], 'bold')
+    call s:Hi('WinBarNC', s:oc['gray'][6], s:oc['gray'][9], 'NONE')
+
     " :set all
     call s:Hi('Title', s:oc['indigo'][3], '')
 
@@ -392,6 +396,10 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('TabLineSel', s:oc['gray'][8], s:oc['gray'][4], 'NONE')
     call s:Hi('TabLine', s:oc['gray'][6], s:oc['gray'][2], 'NONE')
     call s:Hi('WildMenu', s:oc['gray'][1], s:oc['lime'][8])
+
+    " winbar
+    call s:Hi('WinBar', s:oc['indigo'][5], s:oc['gray'][1], 'bold')
+    call s:Hi('WinBarNC', s:oc['gray'][6], s:oc['gray'][1], 'NONE')
 
     " :set all
     call s:Hi('Title', s:oc['indigo'][5], '')
