@@ -234,7 +234,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('WinBarNC', s:oc['gray'][6], s:oc['gray'][9], 'NONE')
 
     " :set all
-    call s:Hi('Title', s:oc['indigo'][3], '')
+    call s:Hi('Title', s:oc['indigo'][3], '', 'bold')
 
     " :set conceallevel=1
     call s:Hi('Conceal', s:oc['gray'][2], s:oc['gray'][8])
@@ -402,7 +402,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call s:Hi('WinBarNC', s:oc['gray'][6], s:oc['gray'][1], 'NONE')
 
     " :set all
-    call s:Hi('Title', s:oc['indigo'][5], '')
+    call s:Hi('Title', s:oc['indigo'][5], '', 'bold')
 
     " :set conceallevel=1
     call s:Hi('Conceal', s:oc['gray'][8], s:oc['gray'][3])
